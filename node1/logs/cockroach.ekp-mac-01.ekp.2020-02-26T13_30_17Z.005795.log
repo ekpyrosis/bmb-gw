@@ -1,0 +1,1077 @@
+I200226 13:30:17.311653 1 util/log/clog.go:1196  [config] file created at: 2020/02/26 13:30:17
+I200226 13:30:17.311653 1 util/log/clog.go:1196  [config] running on machine: ekp-mac-01
+I200226 13:30:17.311653 1 util/log/clog.go:1196  [config] binary: CockroachDB CCL v19.2.4 (x86_64-apple-darwin14, built 2020/02/06 21:49:44, go1.12.12)
+I200226 13:30:17.311653 1 util/log/clog.go:1196  [config] arguments: [cockroach start --insecure --store=node1 --listen-addr=localhost:26257 --http-addr=localhost:8080 --join=localhost:26257,localhost:26258,localhost:26259]
+I200226 13:30:17.311653 1 util/log/clog.go:1196  line format: [IWEF]yymmdd hh:mm:ss.uuuuuu goid file:line msg utf8=✓
+I200226 13:30:17.311652 1 cli/start.go:1144  logging to directory /Users/ekp/Projects/bmb-gw/node1/logs
+W200226 13:30:17.312446 1 cli/start.go:1182  RUNNING IN INSECURE MODE!
+
+- Your cluster is open for any client that can access localhost.
+- Any user, even root, can log in without providing a password.
+- Any user, connecting as root, can read or write any data in your cluster.
+- There is no network encryption nor authentication, and thus no confidentiality.
+
+Check out how to secure your cluster: https://www.cockroachlabs.com/docs/v19.2/secure-a-cluster.html
+W200226 13:30:17.312760 1 cli/start.go:1052  Using the default setting for --cache (128 MiB).
+  A significantly larger value is usually needed for good performance.
+  If you have a dedicated server a reasonable setting is --cache=.25 (2.0 GiB).
+W200226 13:30:17.312974 1 cli/start.go:1065  Using the default setting for --max-sql-memory (128 MiB).
+  A significantly larger value is usually needed in production.
+  If you have a dedicated server a reasonable setting is --max-sql-memory=.25 (2.0 GiB).
+I200226 13:30:17.313010 1 cli/start.go:1196  CockroachDB CCL v19.2.4 (x86_64-apple-darwin14, built 2020/02/06 21:49:44, go1.12.12)
+I200226 13:30:17.421453 1 server/config.go:394  system total memory: 8.0 GiB
+I200226 13:30:17.421551 1 server/config.go:396  server configuration:
+max offset             500000000
+cache size             128 MiB
+SQL memory pool size   128 MiB
+scan interval          10m0s
+scan min idle time     10ms
+scan max idle time     1s
+event log enabled      true
+I200226 13:30:17.421590 1 cli/start.go:1030  using local environment variables: COCKROACH_BACKGROUND_RESTART=1
+I200226 13:30:17.421676 1 cli/start.go:1037  process identity: uid 501 euid 501 gid 20 egid 20
+I200226 13:30:17.422829 1 cli/start.go:644  starting cockroach node
+I200226 13:30:17.435601 22 storage/engine/rocksdb.go:622  opening rocksdb instance at "/Users/ekp/Projects/bmb-gw/node1/cockroach-temp518314998"
+I200226 13:30:17.478014 22 server/server.go:928  [n?] monitoring forward clock jumps based on server.clock.forward_jump_check_enabled
+W200226 13:30:17.479506 22 server/config_unix.go:112  soft open file descriptor limit 10240 is under the recommended limit 15000; this may decrease performance
+please see https://www.cockroachlabs.com/docs/v19.2/recommended-production-settings.html for more details
+I200226 13:30:17.479736 22 storage/engine/rocksdb.go:622  opening rocksdb instance at "/Users/ekp/Projects/bmb-gw/node1"
+I200226 13:30:17.492773 22 server/config.go:502  [n?] 1 storage engine initialized
+I200226 13:30:17.492788 22 server/config.go:505  [n?] RocksDB cache size: 128 MiB
+I200226 13:30:17.492794 22 server/config.go:505  [n?] store 0: RocksDB, max size 0 B, max open file limit 9984
+W200226 13:30:17.494159 22 gossip/gossip.go:1517  [n?] no incoming or outgoing connections
+I200226 13:30:17.494259 22 server/server.go:1386  [n?] no stores bootstrapped and --join flag specified, awaiting init command or join with an already initialized node.
+W200226 13:30:17.496626 94 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused". Reconnecting...
+I200226 13:30:17.496758 105 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:322  [n?] circuitbreaker: gossip 127.0.0.1:26257->localhost:26258 tripped: initial connection heartbeat failed: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused"
+I200226 13:30:17.496773 105 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447  [n?] circuitbreaker: gossip 127.0.0.1:26257->localhost:26258 event: BreakerTripped
+W200226 13:30:17.496788 105 gossip/client.go:118  [n?] failed to start gossip client to localhost:26258: initial connection heartbeat failed: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused"
+W200226 13:30:18.498184 94 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:18.501085 62 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+I200226 13:30:18.501220 117 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:322  [n?] circuitbreaker: gossip 127.0.0.1:26257->localhost:26259 tripped: initial connection heartbeat failed: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused"
+I200226 13:30:18.501240 117 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447  [n?] circuitbreaker: gossip 127.0.0.1:26257->localhost:26259 event: BreakerTripped
+W200226 13:30:18.501265 117 gossip/client.go:118  [n?] failed to start gossip client to localhost:26259: initial connection heartbeat failed: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused"
+I200226 13:30:19.496052 93 cli/start.go:603  initial startup completed.
+Node will now attempt to join a running cluster, or wait for `cockroach init`.
+Client connections will be accepted after this completes successfully.
+Check the log file(s) for progress. 
+W200226 13:30:19.501977 62 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:19.504228 109 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused". Reconnecting...
+W200226 13:30:20.511022 148 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+W200226 13:30:20.530101 109 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:21.513367 151 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused". Reconnecting...
+W200226 13:30:21.513704 148 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:22.513901 151 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:22.515706 124 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+W200226 13:30:23.521598 124 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:23.527572 180 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused". Reconnecting...
+W200226 13:30:24.528566 180 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:24.531486 194 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+W200226 13:30:25.533874 194 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:25.536873 226 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused". Reconnecting...
+W200226 13:30:26.539037 226 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:26.544794 200 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+W200226 13:30:27.545457 200 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:27.548602 205 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused". Reconnecting...
+W200226 13:30:28.549029 205 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:28.552574 134 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+W200226 13:30:29.556070 134 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:29.557179 245 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused". Reconnecting...
+W200226 13:30:30.561097 245 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:30.561563 223 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+W200226 13:30:31.562890 223 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:31.565962 268 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused". Reconnecting...
+W200226 13:30:32.569752 291 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+W200226 13:30:32.570173 268 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:33.571184 291 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:33.575453 282 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused". Reconnecting...
+W200226 13:30:34.575786 282 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:34.578805 310 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+W200226 13:30:35.580692 310 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:35.585222 319 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused". Reconnecting...
+W200226 13:30:36.585599 319 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:36.586292 287 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+W200226 13:30:37.588387 287 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:37.590647 330 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused". Reconnecting...
+W200226 13:30:38.594386 330 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:38.600711 388 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+W200226 13:30:39.597037 395 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26258: connect: connection refused". Reconnecting...
+W200226 13:30:39.602609 388 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+I200226 13:30:40.087898 419 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26258
+W200226 13:30:40.597575 395 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26258 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+W200226 13:30:40.600621 420 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+W200226 13:30:41.604307 420 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+I200226 13:30:41.609461 434 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447  [n?] circuitbreaker: gossip 127.0.0.1:26257->localhost:26258 event: BreakerReset
+I200226 13:30:41.609523 434 gossip/client.go:124  [n?] started gossip client to localhost:26258
+I200226 13:30:41.610651 434 gossip/client.go:131  [n?] closing client to localhost:26258: stopping outgoing client to n0 (localhost:26258); loopback connection
+I200226 13:30:42.095565 428 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26258
+W200226 13:30:42.611692 409 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+W200226 13:30:43.612661 409 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+I200226 13:30:43.614064 416 gossip/client.go:124  [n?] started gossip client to localhost:26258
+I200226 13:30:43.615214 416 gossip/client.go:131  [n?] closing client to localhost:26258: stopping outgoing client to n0 (localhost:26258); loopback connection
+I200226 13:30:44.101690 441 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26258
+W200226 13:30:44.617104 470 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+W200226 13:30:45.620029 470 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+I200226 13:30:45.622616 477 gossip/client.go:124  [n?] started gossip client to localhost:26258
+I200226 13:30:45.623756 477 gossip/client.go:131  [n?] closing client to localhost:26258: stopping outgoing client to n0 (localhost:26258); loopback connection
+I200226 13:30:46.112477 482 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26258
+W200226 13:30:46.626252 501 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+W200226 13:30:47.499792 448 cli/start.go:638  The server appears to be unable to contact the other nodes in the cluster. Please try:
+
+- starting the other nodes, if you haven't already;
+- double-checking that the '--join' and '--listen'/'--advertise' flags are set up correctly;
+- running the 'cockroach init' command if you are trying to initialize a new cluster.
+
+If problems persist, please see https://www.cockroachlabs.com/docs/v19.2/cluster-setup-troubleshooting.html.
+I200226 13:30:47.626079 508 gossip/client.go:124  [n?] started gossip client to localhost:26258
+W200226 13:30:47.626818 501 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+I200226 13:30:47.627221 508 gossip/client.go:131  [n?] closing client to localhost:26258: stopping outgoing client to n0 (localhost:26258); loopback connection
+I200226 13:30:48.120675 511 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26258
+W200226 13:30:48.633773 514 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+I200226 13:30:49.635137 533 gossip/client.go:124  [n?] started gossip client to localhost:26258
+I200226 13:30:49.635608 533 gossip/client.go:131  [n?] closing client to localhost:26258: stopping outgoing client to n0 (localhost:26258); loopback connection
+W200226 13:30:49.639133 514 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+I200226 13:30:50.130483 487 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26258
+W200226 13:30:50.641001 488 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing dial tcp [::1]:26259: connect: connection refused". Reconnecting...
+I200226 13:30:50.879766 528 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26259
+W200226 13:30:51.658541 488 vendor/google.golang.org/grpc/clientconn.go:1206  grpc: addrConn.createTransport failed to connect to {localhost:26259 0  <nil>}. Err :connection error: desc = "transport: Error while dialing cannot reuse client connection". Reconnecting...
+I200226 13:30:51.673606 460 gossip/client.go:124  [n?] started gossip client to localhost:26258
+I200226 13:30:51.689371 460 gossip/client.go:131  [n?] closing client to localhost:26258: stopping outgoing client to n0 (localhost:26258); loopback connection
+I200226 13:30:52.140541 463 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26258
+I200226 13:30:52.683822 547 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447  [n?] circuitbreaker: gossip 127.0.0.1:26257->localhost:26259 event: BreakerReset
+I200226 13:30:52.683862 547 gossip/client.go:124  [n?] started gossip client to localhost:26259
+I200226 13:30:52.684457 547 gossip/client.go:131  [n?] closing client to localhost:26259: stopping outgoing client to n0 (localhost:26259); loopback connection
+I200226 13:30:52.884408 578 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26259
+I200226 13:30:53.682688 566 gossip/client.go:124  [n?] started gossip client to localhost:26258
+I200226 13:30:53.683394 566 gossip/client.go:131  [n?] closing client to localhost:26258: stopping outgoing client to n0 (localhost:26258); loopback connection
+I200226 13:30:54.143800 579 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26258
+I200226 13:30:54.689104 594 gossip/client.go:124  [n?] started gossip client to localhost:26259
+I200226 13:30:54.689807 594 gossip/client.go:131  [n?] closing client to localhost:26259: stopping outgoing client to n0 (localhost:26259); loopback connection
+I200226 13:30:54.891256 570 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26259
+I200226 13:30:55.694996 582 gossip/client.go:124  [n?] started gossip client to localhost:26258
+I200226 13:30:55.695829 582 gossip/client.go:131  [n?] closing client to localhost:26258: stopping outgoing client to n0 (localhost:26258); loopback connection
+I200226 13:30:56.156198 557 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26258
+I200226 13:30:56.700208 597 gossip/client.go:124  [n?] started gossip client to localhost:26259
+I200226 13:30:56.701122 597 gossip/client.go:131  [n?] closing client to localhost:26259: stopping outgoing client to n0 (localhost:26259); loopback connection
+I200226 13:30:56.898996 559 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26259
+I200226 13:30:57.707135 573 gossip/client.go:124  [n?] started gossip client to localhost:26258
+I200226 13:30:57.708277 573 gossip/client.go:131  [n?] closing client to localhost:26258: stopping outgoing client to n0 (localhost:26258); loopback connection
+I200226 13:30:58.160827 560 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26258
+I200226 13:30:58.710227 610 gossip/client.go:124  [n?] started gossip client to localhost:26259
+I200226 13:30:58.711102 610 gossip/client.go:131  [n?] closing client to localhost:26259: stopping outgoing client to n0 (localhost:26259); loopback connection
+I200226 13:30:58.909205 588 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26259
+I200226 13:30:59.716127 615 gossip/client.go:124  [n?] started gossip client to localhost:26258
+I200226 13:30:59.718914 615 gossip/client.go:131  [n?] closing client to localhost:26258: stopping outgoing client to n0 (localhost:26258); loopback connection
+I200226 13:31:00.171841 561 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26258
+I200226 13:31:00.720852 621 gossip/client.go:124  [n?] started gossip client to localhost:26259
+I200226 13:31:00.721646 621 gossip/client.go:131  [n?] closing client to localhost:26259: stopping outgoing client to n0 (localhost:26259); loopback connection
+I200226 13:31:00.920791 590 gossip/server.go:227  [n?] received initial cluster-verification connection from localhost:26259
+I200226 13:31:01.209965 22 server/node.go:326  [n?] **** cluster 6ca8572f-3e9d-4dc6-b3d7-2a90ca0538c2 has been created
+I200226 13:31:01.210561 22 gossip/gossip.go:394  [n1] NodeDescriptor set to node_id:1 address:<network_field:"tcp" address_field:"localhost:26257" > attrs:<> locality:<> ServerVersion:<major_val:19 minor_val:2 patch:0 unstable:0 > build_tag:"v19.2.4" started_at:1582723861210190000 cluster_name:"" sql_address:<network_field:"tcp" address_field:"localhost:26257" > 
+W200226 13:31:01.259365 692 storage/store.go:1530  [n1,s1,r6/1:/Table/{SystemCon…-11}] could not gossip system config: [NotLeaseHolderError] r6: replica (n1,s1):1 not lease holder; lease holder unknown
+I200226 13:31:01.265507 22 server/node.go:431  [n1] initialized store [n1,s1]: disk (capacity=234 GiB, available=3.9 GiB, used=96 KiB, logicalBytes=11 KiB), ranges=24, leases=2, queries=0.00, writes=0.00, bytesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=166.00 pMax=9955.00}, writesPerReplica={p10=0.00 p25=0.00 p50=0.00 p75=0.00 p90=0.00 pMax=0.00}
+I200226 13:31:01.265626 22 storage/stores.go:240  [n1] read 0 node addresses from persistent storage
+I200226 13:31:01.265745 22 server/node.go:645  [n1] connecting to gossip network to verify cluster ID...
+I200226 13:31:01.265766 22 server/node.go:665  [n1] node connected via gossip and verified as part of cluster "6ca8572f-3e9d-4dc6-b3d7-2a90ca0538c2"
+I200226 13:31:01.265980 22 server/node.go:512  [n1] node=1: started with [<no-attributes>=/Users/ekp/Projects/bmb-gw/node1] engine(s) and attributes []
+I200226 13:31:01.266711 22 server/server.go:1514  [n1] starting http server at 127.0.0.1:8080 (use: localhost:8080)
+I200226 13:31:01.266742 22 server/server.go:1521  [n1] starting grpc/postgres server at 127.0.0.1:26257
+I200226 13:31:01.266770 22 server/server.go:1522  [n1] advertising CockroachDB node at localhost:26257
+I200226 13:31:01.312677 738 sql/event_log.go:130  [n1,intExec=optInToDiagnosticsStatReporting] Event: "set_cluster_setting", target: 0, info: {SettingName:diagnostics.reporting.enabled Value:true User:root}
+I200226 13:31:01.329842 748 sql/event_log.go:130  [n1,intExec=set-setting] Event: "set_cluster_setting", target: 0, info: {SettingName:version Value:19.2 User:root}
+I200226 13:31:01.340887 811 sql/event_log.go:130  [n1,intExec=disableNetTrace] Event: "set_cluster_setting", target: 0, info: {SettingName:trace.debug.enable Value:false User:root}
+I200226 13:31:01.375143 1130 sql/event_log.go:130  [n1,intExec=initializeClusterSecret] Event: "set_cluster_setting", target: 0, info: {SettingName:cluster.secret Value:d453b654-68ff-4f6a-9b6c-4f2e8eced86b User:root}
+I200226 13:31:01.389009 1136 sql/event_log.go:130  [n1,intExec=create-default-db] Event: "create_database", target: 50, info: {DatabaseName:defaultdb Statement:CREATE DATABASE IF NOT EXISTS defaultdb User:root}
+I200226 13:31:01.395930 1162 sql/event_log.go:130  [n1,intExec=create-default-db] Event: "create_database", target: 51, info: {DatabaseName:postgres Statement:CREATE DATABASE IF NOT EXISTS postgres User:root}
+I200226 13:31:01.435819 22 server/server.go:1590  [n1] done ensuring all necessary migrations have run
+I200226 13:31:01.435885 22 server/server.go:1841  [n1] serving sql connections
+I200226 13:31:01.436015 22 cli/start.go:803  [config] clusterID: 6ca8572f-3e9d-4dc6-b3d7-2a90ca0538c2
+I200226 13:31:01.436065 22 cli/start.go:812  node startup completed:
+CockroachDB node starting at 2020-02-26 13:31:01.435913 +0000 UTC (took 44.1s)
+build:               CCL v19.2.4 @ 2020/02/06 21:49:44 (go1.12.12)
+webui:               http://localhost:8080
+sql:                 postgresql://root@localhost:26257?sslmode=disable
+RPC client flags:    cockroach <client cmd> --host=localhost:26257 --insecure
+logs:                /Users/ekp/Projects/bmb-gw/node1/logs
+temp dir:            /Users/ekp/Projects/bmb-gw/node1/cockroach-temp518314998
+external I/O path:   /Users/ekp/Projects/bmb-gw/node1/extern
+store[0]:            path=/Users/ekp/Projects/bmb-gw/node1
+status:              initialized new cluster
+clusterID:           6ca8572f-3e9d-4dc6-b3d7-2a90ca0538c2
+nodeID:              1
+I200226 13:31:01.447024 1367 server/server_update.go:53  [n1] no need to upgrade, cluster already at the newest version
+I200226 13:31:01.467467 1369 sql/event_log.go:130  [n1] Event: "node_join", target: 1, info: {Descriptor:{NodeID:1 Address:localhost:26257 Attrs: Locality: ServerVersion:19.2 BuildTag:v19.2.4 StartedAt:1582723861210190000 LocalityAddress:[] ClusterName: SQLAddress:localhost:26257} ClusterID:6ca8572f-3e9d-4dc6-b3d7-2a90ca0538c2 StartedAt:1582723861210190000 LastUp:1582723861210190000}
+I200226 13:31:01.725678 1383 gossip/client.go:124  [n1] started gossip client to localhost:26258
+I200226 13:31:01.727327 1383 gossip/client.go:131  [n1] closing client to localhost:26258: rpc error: code = Unknown desc = gossip connection refused from different cluster 6ca8572f-3e9d-4dc6-b3d7-2a90ca0538c2
+I200226 13:31:01.727550 91 gossip/gossip.go:1531  [n1] node has connected to cluster via gossip
+I200226 13:31:01.727885 91 storage/stores.go:259  [n1] wrote 0 node addresses to persistent storage
+I200226 13:31:02.177131 1104 gossip/server.go:227  [n1] received initial cluster-verification connection from localhost:26258
+I200226 13:31:02.178255 1104 gossip/server.go:227  [n1] received initial cluster-verification connection from localhost:26258
+I200226 13:31:02.220142 30 storage/stores.go:259  [n1] wrote 1 node addresses to persistent storage
+I200226 13:31:02.930045 1851 gossip/server.go:227  [n1] received initial cluster-verification connection from localhost:26259
+I200226 13:31:02.933798 1851 gossip/server.go:227  [n1] received initial cluster-verification connection from localhost:26259
+I200226 13:31:02.949369 30 storage/stores.go:259  [n1] wrote 2 node addresses to persistent storage
+I200226 13:31:03.040345 808 storage/replica_command.go:1586  [n1,replicate,s1,r5/1:/{Systemtse-Table/System…}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r5:/{Systemtse-Table/SystemConfigSpan/Start} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:03.052959 808 storage/replica_raft.go:291  [n1,s1,r5/1:/{Systemtse-Table/System…}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:03.069189 1889 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r5/1:/{Systemtse-Table/System…}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:03.069329 808 storage/store_snapshot.go:978  [n1,replicate,s1,r5/1:/{Systemtse-Table/System…}] sending LEARNER snapshot 51bb9426 at applied index 19
+I200226 13:31:03.069616 808 storage/store_snapshot.go:1021  [n1,replicate,s1,r5/1:/{Systemtse-Table/System…}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 8, log entries: 0, rate-limit: 8.0 MiB/sec, 0.01s
+I200226 13:31:03.127944 808 storage/replica_command.go:1586  [n1,replicate,s1,r5/1:/{Systemtse-Table/System…}] change replicas (add [(n2,s2):2] remove []): existing descriptor r5:/{Systemtse-Table/SystemConfigSpan/Start} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:03.135052 808 storage/replica_raft.go:291  [n1,s1,r5/1:/{Systemtse-Table/System…}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:03.141415 808 storage/replica_command.go:1586  [n1,replicate,s1,r5/1:/{Systemtse-Table/System…}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r5:/{Systemtse-Table/SystemConfigSpan/Start} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:03.158317 808 storage/replica_raft.go:291  [n1,s1,r5/1:/{Systemtse-Table/System…}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:03.166092 808 storage/store_snapshot.go:978  [n1,replicate,s1,r5/1:/{Systemtse-Table/System…}] sending LEARNER snapshot 540e28cd at applied index 23
+I200226 13:31:03.166287 808 storage/store_snapshot.go:1021  [n1,replicate,s1,r5/1:/{Systemtse-Table/System…}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 12, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:03.173450 1988 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r5/1:/{Systemtse-Table/System…}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:03.274672 808 storage/replica_command.go:1586  [n1,replicate,s1,r5/1:/{Systemtse-Table/System…}] change replicas (add [(n3,s3):3] remove []): existing descriptor r5:/{Systemtse-Table/SystemConfigSpan/Start} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:03.280598 808 storage/replica_raft.go:291  [n1,s1,r5/1:/{Systemtse-Table/System…}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:03.289126 808 storage/replica_command.go:1586  [n1,replicate,s1,r8/1:/Table/1{2-3}] change replicas (add [(n3,s3):2LEARNER] remove []): existing descriptor r8:/Table/1{2-3} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:03.295652 808 storage/replica_raft.go:291  [n1,s1,r8/1:/Table/1{2-3}] proposing ADD_REPLICA[(n3,s3):2LEARNER]: after=[(n1,s1):1 (n3,s3):2LEARNER] next=3
+I200226 13:31:03.301772 808 storage/store_snapshot.go:978  [n1,replicate,s1,r8/1:/Table/1{2-3}] sending LEARNER snapshot 2757fdee at applied index 49
+I200226 13:31:03.302304 808 storage/store_snapshot.go:1021  [n1,replicate,s1,r8/1:/Table/1{2-3}] streamed snapshot to (n3,s3):2LEARNER: kv pairs: 71, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:03.302602 2000 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r8/1:/Table/1{2-3}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):2LEARNER
+I200226 13:31:03.332124 808 storage/replica_command.go:1586  [n1,replicate,s1,r8/1:/Table/1{2-3}] change replicas (add [(n3,s3):2] remove []): existing descriptor r8:/Table/1{2-3} [(n1,s1):1, (n3,s3):2LEARNER, next=3, gen=1]
+I200226 13:31:03.338764 808 storage/replica_raft.go:291  [n1,s1,r8/1:/Table/1{2-3}] proposing ADD_REPLICA[(n3,s3):2]: after=[(n1,s1):1 (n3,s3):2] next=3
+I200226 13:31:03.340943 808 storage/replica_command.go:1586  [n1,replicate,s1,r8/1:/Table/1{2-3}] change replicas (add [(n2,s2):3LEARNER] remove []): existing descriptor r8:/Table/1{2-3} [(n1,s1):1, (n3,s3):2, next=3, gen=2]
+I200226 13:31:03.353309 808 storage/replica_raft.go:291  [n1,s1,r8/1:/Table/1{2-3}] proposing ADD_REPLICA[(n2,s2):3LEARNER]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3LEARNER] next=4
+I200226 13:31:03.357938 808 storage/store_snapshot.go:978  [n1,replicate,s1,r8/1:/Table/1{2-3}] sending LEARNER snapshot ff79fa59 at applied index 53
+I200226 13:31:03.358140 2052 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r8/1:/Table/1{2-3}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):3LEARNER
+I200226 13:31:03.358284 808 storage/store_snapshot.go:1021  [n1,replicate,s1,r8/1:/Table/1{2-3}] streamed snapshot to (n2,s2):3LEARNER: kv pairs: 75, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:03.394378 808 storage/replica_command.go:1586  [n1,replicate,s1,r8/1:/Table/1{2-3}] change replicas (add [(n2,s2):3] remove []): existing descriptor r8:/Table/1{2-3} [(n1,s1):1, (n3,s3):2, (n2,s2):3LEARNER, next=4, gen=3]
+I200226 13:31:03.400718 808 storage/replica_raft.go:291  [n1,s1,r8/1:/Table/1{2-3}] proposing ADD_REPLICA[(n2,s2):3]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3] next=4
+I200226 13:31:03.404977 808 storage/replica_command.go:1586  [n1,replicate,s1,r7/1:/Table/1{1-2}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r7:/Table/1{1-2} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:03.409938 808 storage/replica_raft.go:291  [n1,s1,r7/1:/Table/1{1-2}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:03.414413 2060 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r7/1:/Table/1{1-2}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:03.415400 808 storage/store_snapshot.go:978  [n1,replicate,s1,r7/1:/Table/1{1-2}] sending LEARNER snapshot 4a73c59c at applied index 19
+I200226 13:31:03.417227 808 storage/store_snapshot.go:1021  [n1,replicate,s1,r7/1:/Table/1{1-2}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 7, log entries: 0, rate-limit: 8.0 MiB/sec, 0.01s
+I200226 13:31:03.441349 808 storage/replica_command.go:1586  [n1,replicate,s1,r7/1:/Table/1{1-2}] change replicas (add [(n2,s2):2] remove []): existing descriptor r7:/Table/1{1-2} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:03.446127 808 storage/replica_raft.go:291  [n1,s1,r7/1:/Table/1{1-2}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:03.449289 808 storage/replica_command.go:1586  [n1,replicate,s1,r7/1:/Table/1{1-2}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r7:/Table/1{1-2} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:03.462788 808 storage/replica_raft.go:291  [n1,s1,r7/1:/Table/1{1-2}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:03.468967 808 storage/store_snapshot.go:978  [n1,replicate,s1,r7/1:/Table/1{1-2}] sending LEARNER snapshot 446cd41f at applied index 24
+I200226 13:31:03.469118 2047 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r7/1:/Table/1{1-2}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:03.469197 808 storage/store_snapshot.go:1021  [n1,replicate,s1,r7/1:/Table/1{1-2}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:03.501783 808 storage/replica_command.go:1586  [n1,replicate,s1,r7/1:/Table/1{1-2}] change replicas (add [(n3,s3):3] remove []): existing descriptor r7:/Table/1{1-2} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:03.508197 808 storage/replica_raft.go:291  [n1,s1,r7/1:/Table/1{1-2}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:03.511081 808 storage/replica_command.go:1586  [n1,replicate,s1,r19/1:/Table/2{3-4}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r19:/Table/2{3-4} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:03.515996 808 storage/replica_raft.go:291  [n1,s1,r19/1:/Table/2{3-4}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:03.521252 808 storage/store_snapshot.go:978  [n1,replicate,s1,r19/1:/Table/2{3-4}] sending LEARNER snapshot 3a56ef7d at applied index 17
+I200226 13:31:03.521412 808 storage/store_snapshot.go:1021  [n1,replicate,s1,r19/1:/Table/2{3-4}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 10, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:03.521421 2032 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r19/1:/Table/2{3-4}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:03.555722 808 storage/replica_command.go:1586  [n1,replicate,s1,r19/1:/Table/2{3-4}] change replicas (add [(n2,s2):2] remove []): existing descriptor r19:/Table/2{3-4} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:03.562074 808 storage/replica_raft.go:291  [n1,s1,r19/1:/Table/2{3-4}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:03.564054 808 storage/replica_command.go:1586  [n1,replicate,s1,r19/1:/Table/2{3-4}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r19:/Table/2{3-4} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:03.576059 808 storage/replica_raft.go:291  [n1,s1,r19/1:/Table/2{3-4}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:03.580886 808 storage/store_snapshot.go:978  [n1,replicate,s1,r19/1:/Table/2{3-4}] sending LEARNER snapshot 7e820768 at applied index 21
+I200226 13:31:03.581052 808 storage/store_snapshot.go:1021  [n1,replicate,s1,r19/1:/Table/2{3-4}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 14, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:03.581208 2165 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r19/1:/Table/2{3-4}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:03.602020 808 storage/replica_command.go:1586  [n1,replicate,s1,r19/1:/Table/2{3-4}] change replicas (add [(n3,s3):3] remove []): existing descriptor r19:/Table/2{3-4} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:03.608410 808 storage/replica_raft.go:291  [n1,s1,r19/1:/Table/2{3-4}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:03.611989 808 storage/replica_command.go:1586  [n1,replicate,s1,r17/1:/Table/2{1-2}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r17:/Table/2{1-2} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:03.615511 808 storage/replica_raft.go:291  [n1,s1,r17/1:/Table/2{1-2}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:03.618770 808 storage/store_snapshot.go:978  [n1,replicate,s1,r17/1:/Table/2{1-2}] sending LEARNER snapshot 6cf5ad6a at applied index 21
+I200226 13:31:03.618942 808 storage/store_snapshot.go:1021  [n1,replicate,s1,r17/1:/Table/2{1-2}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:03.618946 2128 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r17/1:/Table/2{1-2}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:03.641352 808 storage/replica_command.go:1586  [n1,replicate,s1,r17/1:/Table/2{1-2}] change replicas (add [(n2,s2):2] remove []): existing descriptor r17:/Table/2{1-2} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:03.645035 808 storage/replica_raft.go:291  [n1,s1,r17/1:/Table/2{1-2}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:03.646572 808 storage/replica_command.go:1586  [n1,replicate,s1,r17/1:/Table/2{1-2}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r17:/Table/2{1-2} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:03.657525 808 storage/replica_raft.go:291  [n1,s1,r17/1:/Table/2{1-2}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:03.661861 808 storage/store_snapshot.go:978  [n1,replicate,s1,r17/1:/Table/2{1-2}] sending LEARNER snapshot 12eb69b2 at applied index 25
+I200226 13:31:03.662026 808 storage/store_snapshot.go:1021  [n1,replicate,s1,r17/1:/Table/2{1-2}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 15, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:03.662057 2194 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r17/1:/Table/2{1-2}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:03.680261 808 storage/replica_command.go:1586  [n1,replicate,s1,r17/1:/Table/2{1-2}] change replicas (add [(n3,s3):3] remove []): existing descriptor r17:/Table/2{1-2} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:03.686321 808 storage/replica_raft.go:291  [n1,s1,r17/1:/Table/2{1-2}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:03.688544 808 storage/queue.go:1132  [n1,replicate] purgatory is now empty
+I200226 13:31:03.689213 2211 storage/replica_command.go:1586  [n1,replicate,s1,r9/1:/Table/1{3-4}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r9:/Table/1{3-4} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:03.694437 2211 storage/replica_raft.go:291  [n1,s1,r9/1:/Table/1{3-4}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:03.698708 2211 storage/store_snapshot.go:978  [n1,replicate,s1,r9/1:/Table/1{3-4}] sending LEARNER snapshot ede3e999 at applied index 60
+I200226 13:31:03.698884 2185 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r9/1:/Table/1{3-4}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:03.699092 2211 storage/store_snapshot.go:1021  [n1,replicate,s1,r9/1:/Table/1{3-4}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 111, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:03.716059 2211 storage/replica_command.go:1586  [n1,replicate,s1,r9/1:/Table/1{3-4}] change replicas (add [(n2,s2):2] remove []): existing descriptor r9:/Table/1{3-4} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:03.720499 2211 storage/replica_raft.go:291  [n1,s1,r9/1:/Table/1{3-4}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:03.722635 2211 storage/replica_command.go:1586  [n1,replicate,s1,r9/1:/Table/1{3-4}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r9:/Table/1{3-4} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:03.734065 2211 storage/replica_raft.go:291  [n1,s1,r9/1:/Table/1{3-4}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:03.738352 2211 storage/store_snapshot.go:978  [n1,replicate,s1,r9/1:/Table/1{3-4}] sending LEARNER snapshot f1070353 at applied index 66
+I200226 13:31:03.738532 2175 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r9/1:/Table/1{3-4}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:03.738831 2211 storage/store_snapshot.go:1021  [n1,replicate,s1,r9/1:/Table/1{3-4}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 125, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:03.756937 2211 storage/replica_command.go:1586  [n1,replicate,s1,r9/1:/Table/1{3-4}] change replicas (add [(n3,s3):3] remove []): existing descriptor r9:/Table/1{3-4} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:03.763015 2211 storage/replica_raft.go:291  [n1,s1,r9/1:/Table/1{3-4}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:03.765876 2242 storage/replica_command.go:1586  [n1,replicate,s1,r15/1:/Table/{19-20}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r15:/Table/{19-20} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:03.769626 2242 storage/replica_raft.go:291  [n1,s1,r15/1:/Table/{19-20}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:03.773075 2242 storage/store_snapshot.go:978  [n1,replicate,s1,r15/1:/Table/{19-20}] sending LEARNER snapshot d17e4bee at applied index 18
+I200226 13:31:03.773209 2258 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r15/1:/Table/{19-20}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:03.773243 2242 storage/store_snapshot.go:1021  [n1,replicate,s1,r15/1:/Table/{19-20}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 7, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:03.802026 2242 storage/replica_command.go:1586  [n1,replicate,s1,r15/1:/Table/{19-20}] change replicas (add [(n2,s2):2] remove []): existing descriptor r15:/Table/{19-20} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:03.809997 2242 storage/replica_raft.go:291  [n1,s1,r15/1:/Table/{19-20}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:03.820628 2242 storage/replica_command.go:1586  [n1,replicate,s1,r15/1:/Table/{19-20}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r15:/Table/{19-20} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:03.832001 2242 storage/replica_raft.go:291  [n1,s1,r15/1:/Table/{19-20}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:03.835986 2242 storage/store_snapshot.go:978  [n1,replicate,s1,r15/1:/Table/{19-20}] sending LEARNER snapshot e456e907 at applied index 22
+I200226 13:31:03.836104 2253 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r15/1:/Table/{19-20}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:03.836138 2242 storage/store_snapshot.go:1021  [n1,replicate,s1,r15/1:/Table/{19-20}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:03.856981 2242 storage/replica_command.go:1586  [n1,replicate,s1,r15/1:/Table/{19-20}] change replicas (add [(n3,s3):3] remove []): existing descriptor r15:/Table/{19-20} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:03.863534 2242 storage/replica_raft.go:291  [n1,s1,r15/1:/Table/{19-20}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:04.290236 2235 storage/replica_command.go:1586  [n1,replicate,s1,r16/1:/Table/2{0-1}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r16:/Table/2{0-1} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:04.299554 2235 storage/replica_raft.go:291  [n1,s1,r16/1:/Table/2{0-1}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:04.302933 2235 storage/store_snapshot.go:978  [n1,replicate,s1,r16/1:/Table/2{0-1}] sending LEARNER snapshot 19dad3cf at applied index 17
+I200226 13:31:04.303038 2314 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r16/1:/Table/2{0-1}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:04.303082 2235 storage/store_snapshot.go:1021  [n1,replicate,s1,r16/1:/Table/2{0-1}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 7, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:04.381744 2235 storage/replica_command.go:1586  [n1,replicate,s1,r16/1:/Table/2{0-1}] change replicas (add [(n2,s2):2] remove []): existing descriptor r16:/Table/2{0-1} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:04.390173 2235 storage/replica_raft.go:291  [n1,s1,r16/1:/Table/2{0-1}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:04.394039 2235 storage/replica_command.go:1586  [n1,replicate,s1,r16/1:/Table/2{0-1}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r16:/Table/2{0-1} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:04.410892 2235 storage/replica_raft.go:291  [n1,s1,r16/1:/Table/2{0-1}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:04.416213 2235 storage/store_snapshot.go:978  [n1,replicate,s1,r16/1:/Table/2{0-1}] sending LEARNER snapshot e434367f at applied index 21
+I200226 13:31:04.416740 2235 storage/store_snapshot.go:1021  [n1,replicate,s1,r16/1:/Table/2{0-1}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:04.417167 2305 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r16/1:/Table/2{0-1}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:04.442710 2235 storage/replica_command.go:1586  [n1,replicate,s1,r16/1:/Table/2{0-1}] change replicas (add [(n3,s3):3] remove []): existing descriptor r16:/Table/2{0-1} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:04.452565 2235 storage/replica_raft.go:291  [n1,s1,r16/1:/Table/2{0-1}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:05.290267 2360 storage/replica_command.go:1586  [n1,replicate,s1,r3/1:/System/{NodeLive…-tsd}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r3:/System/{NodeLivenessMax-tsd} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:05.295970 2360 storage/replica_raft.go:291  [n1,s1,r3/1:/System/{NodeLive…-tsd}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:05.300527 2360 storage/store_snapshot.go:978  [n1,replicate,s1,r3/1:/System/{NodeLive…-tsd}] sending LEARNER snapshot 0e9510ec at applied index 60
+I200226 13:31:05.300714 2406 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r3/1:/System/{NodeLive…-tsd}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:05.301288 2360 storage/store_snapshot.go:1021  [n1,replicate,s1,r3/1:/System/{NodeLive…-tsd}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 45, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:05.344536 2360 storage/replica_command.go:1586  [n1,replicate,s1,r3/1:/System/{NodeLive…-tsd}] change replicas (add [(n2,s2):2] remove []): existing descriptor r3:/System/{NodeLivenessMax-tsd} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:05.349115 2360 storage/replica_raft.go:291  [n1,s1,r3/1:/System/{NodeLive…-tsd}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:05.351388 2360 storage/replica_command.go:1586  [n1,replicate,s1,r3/1:/System/{NodeLive…-tsd}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r3:/System/{NodeLivenessMax-tsd} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:05.365306 2360 storage/replica_raft.go:291  [n1,s1,r3/1:/System/{NodeLive…-tsd}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:05.369677 2360 storage/store_snapshot.go:978  [n1,replicate,s1,r3/1:/System/{NodeLive…-tsd}] sending LEARNER snapshot af66c3cd at applied index 64
+I200226 13:31:05.369887 2422 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r3/1:/System/{NodeLive…-tsd}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:05.370424 2360 storage/store_snapshot.go:1021  [n1,replicate,s1,r3/1:/System/{NodeLive…-tsd}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 49, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:05.395781 2360 storage/replica_command.go:1586  [n1,replicate,s1,r3/1:/System/{NodeLive…-tsd}] change replicas (add [(n3,s3):3] remove []): existing descriptor r3:/System/{NodeLivenessMax-tsd} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:05.401273 2360 storage/replica_raft.go:291  [n1,s1,r3/1:/System/{NodeLive…-tsd}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:06.295966 2503 storage/replica_command.go:1586  [n1,replicate,s1,r23/1:/Table/2{7-8}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r23:/Table/2{7-8} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:06.303194 2503 storage/replica_raft.go:291  [n1,s1,r23/1:/Table/2{7-8}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:06.307674 2503 storage/store_snapshot.go:978  [n1,replicate,s1,r23/1:/Table/2{7-8}] sending LEARNER snapshot 0edfde82 at applied index 17
+I200226 13:31:06.307773 2508 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r23/1:/Table/2{7-8}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:06.307812 2503 storage/store_snapshot.go:1021  [n1,replicate,s1,r23/1:/Table/2{7-8}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 7, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:06.329012 2503 storage/replica_command.go:1586  [n1,replicate,s1,r23/1:/Table/2{7-8}] change replicas (add [(n2,s2):2] remove []): existing descriptor r23:/Table/2{7-8} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:06.333658 2503 storage/replica_raft.go:291  [n1,s1,r23/1:/Table/2{7-8}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:06.335459 2503 storage/replica_command.go:1586  [n1,replicate,s1,r23/1:/Table/2{7-8}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r23:/Table/2{7-8} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:06.346298 2503 storage/replica_raft.go:291  [n1,s1,r23/1:/Table/2{7-8}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:06.350760 2503 storage/store_snapshot.go:978  [n1,replicate,s1,r23/1:/Table/2{7-8}] sending LEARNER snapshot a8eedf80 at applied index 21
+I200226 13:31:06.350992 2503 storage/store_snapshot.go:1021  [n1,replicate,s1,r23/1:/Table/2{7-8}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:06.351178 2535 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r23/1:/Table/2{7-8}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:06.371068 2503 storage/replica_command.go:1586  [n1,replicate,s1,r23/1:/Table/2{7-8}] change replicas (add [(n3,s3):3] remove []): existing descriptor r23:/Table/2{7-8} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:06.377821 2503 storage/replica_raft.go:291  [n1,s1,r23/1:/Table/2{7-8}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:07.297482 2568 storage/replica_command.go:1586  [n1,replicate,s1,r13/1:/Table/1{7-8}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r13:/Table/1{7-8} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:07.304502 2568 storage/replica_raft.go:291  [n1,s1,r13/1:/Table/1{7-8}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:07.309038 2568 storage/store_snapshot.go:978  [n1,replicate,s1,r13/1:/Table/1{7-8}] sending LEARNER snapshot cca81655 at applied index 17
+I200226 13:31:07.309243 2568 storage/store_snapshot.go:1021  [n1,replicate,s1,r13/1:/Table/1{7-8}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 7, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:07.309408 2497 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r13/1:/Table/1{7-8}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:07.327636 2568 storage/replica_command.go:1586  [n1,replicate,s1,r13/1:/Table/1{7-8}] change replicas (add [(n2,s2):2] remove []): existing descriptor r13:/Table/1{7-8} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:07.332389 2568 storage/replica_raft.go:291  [n1,s1,r13/1:/Table/1{7-8}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:07.334600 2568 storage/replica_command.go:1586  [n1,replicate,s1,r13/1:/Table/1{7-8}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r13:/Table/1{7-8} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:07.346815 2568 storage/replica_raft.go:291  [n1,s1,r13/1:/Table/1{7-8}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:07.351060 2568 storage/store_snapshot.go:978  [n1,replicate,s1,r13/1:/Table/1{7-8}] sending LEARNER snapshot 7bfb1a22 at applied index 21
+I200226 13:31:07.351212 2599 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r13/1:/Table/1{7-8}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:07.351271 2568 storage/store_snapshot.go:1021  [n1,replicate,s1,r13/1:/Table/1{7-8}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:07.369166 2568 storage/replica_command.go:1586  [n1,replicate,s1,r13/1:/Table/1{7-8}] change replicas (add [(n3,s3):3] remove []): existing descriptor r13:/Table/1{7-8} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:07.374240 2568 storage/replica_raft.go:291  [n1,s1,r13/1:/Table/1{7-8}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:08.295416 2613 storage/replica_command.go:1586  [n1,replicate,s1,r1/1:/{Min-System/NodeL…}] change replicas (add [(n3,s3):2LEARNER] remove []): existing descriptor r1:/{Min-System/NodeLiveness} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:08.299090 2613 storage/replica_raft.go:291  [n1,s1,r1/1:/{Min-System/NodeL…}] proposing ADD_REPLICA[(n3,s3):2LEARNER]: after=[(n1,s1):1 (n3,s3):2LEARNER] next=3
+I200226 13:31:08.302652 2613 storage/store_snapshot.go:978  [n1,replicate,s1,r1/1:/{Min-System/NodeL…}] sending LEARNER snapshot 0c7337f0 at applied index 120
+I200226 13:31:08.302826 2616 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r1/1:/{Min-System/NodeL…}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):2LEARNER
+I200226 13:31:08.302936 2613 storage/store_snapshot.go:1021  [n1,replicate,s1,r1/1:/{Min-System/NodeL…}] streamed snapshot to (n3,s3):2LEARNER: kv pairs: 78, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:08.324208 2613 storage/replica_command.go:1586  [n1,replicate,s1,r1/1:/{Min-System/NodeL…}] change replicas (add [(n3,s3):2] remove []): existing descriptor r1:/{Min-System/NodeLiveness} [(n1,s1):1, (n3,s3):2LEARNER, next=3, gen=1]
+I200226 13:31:08.328428 2613 storage/replica_raft.go:291  [n1,s1,r1/1:/{Min-System/NodeL…}] proposing ADD_REPLICA[(n3,s3):2]: after=[(n1,s1):1 (n3,s3):2] next=3
+I200226 13:31:08.330386 2613 storage/replica_command.go:1586  [n1,replicate,s1,r1/1:/{Min-System/NodeL…}] change replicas (add [(n2,s2):3LEARNER] remove []): existing descriptor r1:/{Min-System/NodeLiveness} [(n1,s1):1, (n3,s3):2, next=3, gen=2]
+I200226 13:31:08.334839 2613 storage/replica_raft.go:291  [n1,s1,r1/1:/{Min-System/NodeL…}] proposing ADD_REPLICA[(n2,s2):3LEARNER]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3LEARNER] next=4
+I200226 13:31:08.339493 2613 storage/store_snapshot.go:978  [n1,replicate,s1,r1/1:/{Min-System/NodeL…}] sending LEARNER snapshot 735ec729 at applied index 126
+I200226 13:31:08.339557 2638 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r1/1:/{Min-System/NodeL…}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):3LEARNER
+I200226 13:31:08.339809 2613 storage/store_snapshot.go:1021  [n1,replicate,s1,r1/1:/{Min-System/NodeL…}] streamed snapshot to (n2,s2):3LEARNER: kv pairs: 86, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:08.357810 2613 storage/replica_command.go:1586  [n1,replicate,s1,r1/1:/{Min-System/NodeL…}] change replicas (add [(n2,s2):3] remove []): existing descriptor r1:/{Min-System/NodeLiveness} [(n1,s1):1, (n3,s3):2, (n2,s2):3LEARNER, next=4, gen=3]
+I200226 13:31:08.363716 2613 storage/replica_raft.go:291  [n1,s1,r1/1:/{Min-System/NodeL…}] proposing ADD_REPLICA[(n2,s2):3]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3] next=4
+I200226 13:31:09.310843 2623 storage/replica_command.go:1586  [n1,replicate,s1,r10/1:/Table/1{4-5}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r10:/Table/1{4-5} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:09.323987 2623 storage/replica_raft.go:291  [n1,s1,r10/1:/Table/1{4-5}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:09.332855 2623 storage/store_snapshot.go:978  [n1,replicate,s1,r10/1:/Table/1{4-5}] sending LEARNER snapshot fc85d35a at applied index 17
+I200226 13:31:09.333063 2623 storage/store_snapshot.go:1021  [n1,replicate,s1,r10/1:/Table/1{4-5}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 7, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:09.333167 2693 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r10/1:/Table/1{4-5}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:09.365346 2623 storage/replica_command.go:1586  [n1,replicate,s1,r10/1:/Table/1{4-5}] change replicas (add [(n2,s2):2] remove []): existing descriptor r10:/Table/1{4-5} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:09.372382 2623 storage/replica_raft.go:291  [n1,s1,r10/1:/Table/1{4-5}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:09.374431 2623 storage/replica_command.go:1586  [n1,replicate,s1,r10/1:/Table/1{4-5}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r10:/Table/1{4-5} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:09.389530 2623 storage/replica_raft.go:291  [n1,s1,r10/1:/Table/1{4-5}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:09.393667 2623 storage/store_snapshot.go:978  [n1,replicate,s1,r10/1:/Table/1{4-5}] sending LEARNER snapshot fb6110c5 at applied index 21
+I200226 13:31:09.393855 2623 storage/store_snapshot.go:1021  [n1,replicate,s1,r10/1:/Table/1{4-5}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:09.393966 2698 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r10/1:/Table/1{4-5}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:09.417824 2623 storage/replica_command.go:1586  [n1,replicate,s1,r10/1:/Table/1{4-5}] change replicas (add [(n3,s3):3] remove []): existing descriptor r10:/Table/1{4-5} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:09.426473 2623 storage/replica_raft.go:291  [n1,s1,r10/1:/Table/1{4-5}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:10.304387 2739 storage/replica_command.go:1586  [n1,replicate,s1,r24/1:/{Table/28-Max}] change replicas (add [(n3,s3):2LEARNER] remove []): existing descriptor r24:/{Table/28-Max} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:10.310825 2739 storage/replica_raft.go:291  [n1,s1,r24/1:/{Table/28-Max}] proposing ADD_REPLICA[(n3,s3):2LEARNER]: after=[(n1,s1):1 (n3,s3):2LEARNER] next=3
+I200226 13:31:10.314621 2739 storage/store_snapshot.go:978  [n1,replicate,s1,r24/1:/{Table/28-Max}] sending LEARNER snapshot 37f6bd47 at applied index 17
+I200226 13:31:10.314834 2739 storage/store_snapshot.go:1021  [n1,replicate,s1,r24/1:/{Table/28-Max}] streamed snapshot to (n3,s3):2LEARNER: kv pairs: 7, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:10.314952 2743 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r24/1:/{Table/28-Max}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):2LEARNER
+I200226 13:31:10.339419 2739 storage/replica_command.go:1586  [n1,replicate,s1,r24/1:/{Table/28-Max}] change replicas (add [(n3,s3):2] remove []): existing descriptor r24:/{Table/28-Max} [(n1,s1):1, (n3,s3):2LEARNER, next=3, gen=1]
+I200226 13:31:10.345233 2739 storage/replica_raft.go:291  [n1,s1,r24/1:/{Table/28-Max}] proposing ADD_REPLICA[(n3,s3):2]: after=[(n1,s1):1 (n3,s3):2] next=3
+I200226 13:31:10.346684 2739 storage/replica_command.go:1586  [n1,replicate,s1,r24/1:/{Table/28-Max}] change replicas (add [(n2,s2):3LEARNER] remove []): existing descriptor r24:/{Table/28-Max} [(n1,s1):1, (n3,s3):2, next=3, gen=2]
+I200226 13:31:10.361536 2739 storage/replica_raft.go:291  [n1,s1,r24/1:/{Table/28-Max}] proposing ADD_REPLICA[(n2,s2):3LEARNER]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3LEARNER] next=4
+I200226 13:31:10.366908 2739 storage/store_snapshot.go:978  [n1,replicate,s1,r24/1:/{Table/28-Max}] sending LEARNER snapshot 86f1fc3d at applied index 21
+I200226 13:31:10.367130 2791 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r24/1:/{Table/28-Max}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):3LEARNER
+I200226 13:31:10.367168 2739 storage/store_snapshot.go:1021  [n1,replicate,s1,r24/1:/{Table/28-Max}] streamed snapshot to (n2,s2):3LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:10.391050 2739 storage/replica_command.go:1586  [n1,replicate,s1,r24/1:/{Table/28-Max}] change replicas (add [(n2,s2):3] remove []): existing descriptor r24:/{Table/28-Max} [(n1,s1):1, (n3,s3):2, (n2,s2):3LEARNER, next=4, gen=3]
+I200226 13:31:10.405557 2739 storage/replica_raft.go:291  [n1,s1,r24/1:/{Table/28-Max}] proposing ADD_REPLICA[(n2,s2):3]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3] next=4
+W200226 13:31:11.268236 705 server/status/runtime.go:420  [n1] unable to get file descriptor usage (will not try again): not implemented on darwin
+I200226 13:31:11.285738 705 server/status/runtime.go:498  [n1] runtime stats: 133 MiB RSS, 232 goroutines, 94 MiB/25 MiB/135 MiB GO alloc/idle/total, 16 MiB/21 MiB CGO alloc/total, 0.0 CGO/sec, 0.0/0.0 %(u/s)time, 0.0 %gc (11x), 2.4 MiB/1.2 MiB (r/w)net
+W200226 13:31:11.302753 713 server/node.go:826  [n1,summaries] health alerts detected: {Alerts:[{StoreID:1 Category:METRICS Description:ranges.underreplicated Value:10}]}
+I200226 13:31:11.306164 2834 storage/replica_command.go:1586  [n1,replicate,s1,r6/1:/Table/{SystemCon…-11}] change replicas (add [(n3,s3):2LEARNER] remove []): existing descriptor r6:/Table/{SystemConfigSpan/Start-11} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:11.313293 2834 storage/replica_raft.go:291  [n1,s1,r6/1:/Table/{SystemCon…-11}] proposing ADD_REPLICA[(n3,s3):2LEARNER]: after=[(n1,s1):1 (n3,s3):2LEARNER] next=3
+I200226 13:31:11.317443 2834 storage/store_snapshot.go:978  [n1,replicate,s1,r6/1:/Table/{SystemCon…-11}] sending LEARNER snapshot 81c67b8f at applied index 53
+I200226 13:31:11.317607 2841 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r6/1:/Table/{SystemCon…-11}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):2LEARNER
+I200226 13:31:11.317699 2834 storage/store_snapshot.go:1021  [n1,replicate,s1,r6/1:/Table/{SystemCon…-11}] streamed snapshot to (n3,s3):2LEARNER: kv pairs: 77, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:11.336571 2834 storage/replica_command.go:1586  [n1,replicate,s1,r6/1:/Table/{SystemCon…-11}] change replicas (add [(n3,s3):2] remove []): existing descriptor r6:/Table/{SystemConfigSpan/Start-11} [(n1,s1):1, (n3,s3):2LEARNER, next=3, gen=1]
+I200226 13:31:11.342417 2834 storage/replica_raft.go:291  [n1,s1,r6/1:/Table/{SystemCon…-11}] proposing ADD_REPLICA[(n3,s3):2]: after=[(n1,s1):1 (n3,s3):2] next=3
+I200226 13:31:11.344152 2834 storage/replica_command.go:1586  [n1,replicate,s1,r6/1:/Table/{SystemCon…-11}] change replicas (add [(n2,s2):3LEARNER] remove []): existing descriptor r6:/Table/{SystemConfigSpan/Start-11} [(n1,s1):1, (n3,s3):2, next=3, gen=2]
+I200226 13:31:11.357873 2834 storage/replica_raft.go:291  [n1,s1,r6/1:/Table/{SystemCon…-11}] proposing ADD_REPLICA[(n2,s2):3LEARNER]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3LEARNER] next=4
+I200226 13:31:11.363013 2834 storage/store_snapshot.go:978  [n1,replicate,s1,r6/1:/Table/{SystemCon…-11}] sending LEARNER snapshot 4cfbca70 at applied index 57
+I200226 13:31:11.363175 2831 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r6/1:/Table/{SystemCon…-11}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):3LEARNER
+I200226 13:31:11.363415 2834 storage/store_snapshot.go:1021  [n1,replicate,s1,r6/1:/Table/{SystemCon…-11}] streamed snapshot to (n2,s2):3LEARNER: kv pairs: 81, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:11.386199 2834 storage/replica_command.go:1586  [n1,replicate,s1,r6/1:/Table/{SystemCon…-11}] change replicas (add [(n2,s2):3] remove []): existing descriptor r6:/Table/{SystemConfigSpan/Start-11} [(n1,s1):1, (n3,s3):2, (n2,s2):3LEARNER, next=4, gen=3]
+I200226 13:31:11.393193 2834 storage/replica_raft.go:291  [n1,s1,r6/1:/Table/{SystemCon…-11}] proposing ADD_REPLICA[(n2,s2):3]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3] next=4
+I200226 13:31:12.312146 2883 storage/replica_command.go:1586  [n1,replicate,s1,r22/1:/Table/2{6-7}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r22:/Table/2{6-7} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:12.375111 2883 storage/replica_raft.go:291  [n1,s1,r22/1:/Table/2{6-7}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:12.379021 2883 storage/store_snapshot.go:978  [n1,replicate,s1,r22/1:/Table/2{6-7}] sending LEARNER snapshot af2d5c1b at applied index 17
+I200226 13:31:12.379215 2904 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r22/1:/Table/2{6-7}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:12.379240 2883 storage/store_snapshot.go:1021  [n1,replicate,s1,r22/1:/Table/2{6-7}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 7, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:12.399806 2883 storage/replica_command.go:1586  [n1,replicate,s1,r22/1:/Table/2{6-7}] change replicas (add [(n2,s2):2] remove []): existing descriptor r22:/Table/2{6-7} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:12.424214 2883 storage/replica_raft.go:291  [n1,s1,r22/1:/Table/2{6-7}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:12.426320 2883 storage/replica_command.go:1586  [n1,replicate,s1,r22/1:/Table/2{6-7}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r22:/Table/2{6-7} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:12.451993 2883 storage/replica_raft.go:291  [n1,s1,r22/1:/Table/2{6-7}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:12.462053 2933 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r22/1:/Table/2{6-7}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:12.462206 2883 storage/store_snapshot.go:978  [n1,replicate,s1,r22/1:/Table/2{6-7}] sending LEARNER snapshot 7d931e54 at applied index 21
+I200226 13:31:12.463297 2883 storage/store_snapshot.go:1021  [n1,replicate,s1,r22/1:/Table/2{6-7}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.01s
+I200226 13:31:12.485888 2883 storage/replica_command.go:1586  [n1,replicate,s1,r22/1:/Table/2{6-7}] change replicas (add [(n3,s3):3] remove []): existing descriptor r22:/Table/2{6-7} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:12.494321 2883 storage/replica_raft.go:291  [n1,s1,r22/1:/Table/2{6-7}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:13.313950 2929 storage/replica_command.go:1586  [n1,replicate,s1,r12/1:/Table/1{6-7}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r12:/Table/1{6-7} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:13.327205 2929 storage/replica_raft.go:291  [n1,s1,r12/1:/Table/1{6-7}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:13.331455 2929 storage/store_snapshot.go:978  [n1,replicate,s1,r12/1:/Table/1{6-7}] sending LEARNER snapshot 16b67d97 at applied index 17
+I200226 13:31:13.331603 2971 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r12/1:/Table/1{6-7}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:13.331646 2929 storage/store_snapshot.go:1021  [n1,replicate,s1,r12/1:/Table/1{6-7}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 7, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:13.350266 2929 storage/replica_command.go:1586  [n1,replicate,s1,r12/1:/Table/1{6-7}] change replicas (add [(n2,s2):2] remove []): existing descriptor r12:/Table/1{6-7} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:13.359726 2929 storage/replica_raft.go:291  [n1,s1,r12/1:/Table/1{6-7}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:13.361735 2929 storage/replica_command.go:1586  [n1,replicate,s1,r12/1:/Table/1{6-7}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r12:/Table/1{6-7} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:13.380109 2929 storage/replica_raft.go:291  [n1,s1,r12/1:/Table/1{6-7}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:13.384628 2929 storage/store_snapshot.go:978  [n1,replicate,s1,r12/1:/Table/1{6-7}] sending LEARNER snapshot 8e9c6efd at applied index 21
+I200226 13:31:13.384824 2929 storage/store_snapshot.go:1021  [n1,replicate,s1,r12/1:/Table/1{6-7}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:13.384880 2954 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r12/1:/Table/1{6-7}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:13.410501 2929 storage/replica_command.go:1586  [n1,replicate,s1,r12/1:/Table/1{6-7}] change replicas (add [(n3,s3):3] remove []): existing descriptor r12:/Table/1{6-7} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:13.421030 2929 storage/replica_raft.go:291  [n1,s1,r12/1:/Table/1{6-7}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:14.318522 3035 storage/replica_command.go:1586  [n1,replicate,s1,r11/1:/Table/1{5-6}] change replicas (add [(n3,s3):2LEARNER] remove []): existing descriptor r11:/Table/1{5-6} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:14.331553 3035 storage/replica_raft.go:291  [n1,s1,r11/1:/Table/1{5-6}] proposing ADD_REPLICA[(n3,s3):2LEARNER]: after=[(n1,s1):1 (n3,s3):2LEARNER] next=3
+I200226 13:31:14.335727 3035 storage/store_snapshot.go:978  [n1,replicate,s1,r11/1:/Table/1{5-6}] sending LEARNER snapshot 4594524f at applied index 17
+I200226 13:31:14.335871 3035 storage/store_snapshot.go:1021  [n1,replicate,s1,r11/1:/Table/1{5-6}] streamed snapshot to (n3,s3):2LEARNER: kv pairs: 7, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:14.335947 3043 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r11/1:/Table/1{5-6}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):2LEARNER
+I200226 13:31:14.350910 3035 storage/replica_command.go:1586  [n1,replicate,s1,r11/1:/Table/1{5-6}] change replicas (add [(n3,s3):2] remove []): existing descriptor r11:/Table/1{5-6} [(n1,s1):1, (n3,s3):2LEARNER, next=3, gen=1]
+I200226 13:31:14.360447 3035 storage/replica_raft.go:291  [n1,s1,r11/1:/Table/1{5-6}] proposing ADD_REPLICA[(n3,s3):2]: after=[(n1,s1):1 (n3,s3):2] next=3
+I200226 13:31:14.369517 3035 storage/replica_command.go:1586  [n1,replicate,s1,r11/1:/Table/1{5-6}] change replicas (add [(n2,s2):3LEARNER] remove []): existing descriptor r11:/Table/1{5-6} [(n1,s1):1, (n3,s3):2, next=3, gen=2]
+I200226 13:31:14.379959 3035 storage/replica_raft.go:291  [n1,s1,r11/1:/Table/1{5-6}] proposing ADD_REPLICA[(n2,s2):3LEARNER]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3LEARNER] next=4
+I200226 13:31:14.384483 3035 storage/store_snapshot.go:978  [n1,replicate,s1,r11/1:/Table/1{5-6}] sending LEARNER snapshot bdd519f8 at applied index 21
+I200226 13:31:14.384570 3049 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r11/1:/Table/1{5-6}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):3LEARNER
+I200226 13:31:14.384663 3035 storage/store_snapshot.go:1021  [n1,replicate,s1,r11/1:/Table/1{5-6}] streamed snapshot to (n2,s2):3LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:14.404611 3035 storage/replica_command.go:1586  [n1,replicate,s1,r11/1:/Table/1{5-6}] change replicas (add [(n2,s2):3] remove []): existing descriptor r11:/Table/1{5-6} [(n1,s1):1, (n3,s3):2, (n2,s2):3LEARNER, next=4, gen=3]
+I200226 13:31:14.415571 3035 storage/replica_raft.go:291  [n1,s1,r11/1:/Table/1{5-6}] proposing ADD_REPLICA[(n2,s2):3]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3] next=4
+I200226 13:31:15.322812 3086 storage/replica_command.go:1586  [n1,replicate,s1,r20/1:/Table/2{4-5}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r20:/Table/2{4-5} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:15.336323 3086 storage/replica_raft.go:291  [n1,s1,r20/1:/Table/2{4-5}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:15.339714 3086 storage/store_snapshot.go:978  [n1,replicate,s1,r20/1:/Table/2{4-5}] sending LEARNER snapshot 75891eab at applied index 17
+I200226 13:31:15.339872 3086 storage/store_snapshot.go:1021  [n1,replicate,s1,r20/1:/Table/2{4-5}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 7, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:15.339937 3025 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r20/1:/Table/2{4-5}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:15.362577 3086 storage/replica_command.go:1586  [n1,replicate,s1,r20/1:/Table/2{4-5}] change replicas (add [(n2,s2):2] remove []): existing descriptor r20:/Table/2{4-5} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:15.374688 3086 storage/replica_raft.go:291  [n1,s1,r20/1:/Table/2{4-5}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:15.376483 3086 storage/replica_command.go:1586  [n1,replicate,s1,r20/1:/Table/2{4-5}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r20:/Table/2{4-5} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:15.386527 3086 storage/replica_raft.go:291  [n1,s1,r20/1:/Table/2{4-5}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:15.390976 3086 storage/store_snapshot.go:978  [n1,replicate,s1,r20/1:/Table/2{4-5}] sending LEARNER snapshot c706070f at applied index 21
+I200226 13:31:15.391131 3086 storage/store_snapshot.go:1021  [n1,replicate,s1,r20/1:/Table/2{4-5}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:15.391187 3067 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r20/1:/Table/2{4-5}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:15.410639 3086 storage/replica_command.go:1586  [n1,replicate,s1,r20/1:/Table/2{4-5}] change replicas (add [(n3,s3):3] remove []): existing descriptor r20:/Table/2{4-5} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:15.419547 3086 storage/replica_raft.go:291  [n1,s1,r20/1:/Table/2{4-5}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:16.326527 3071 storage/replica_command.go:1586  [n1,replicate,s1,r4/1:/System{/tsd-tse}] change replicas (add [(n2,s2):2LEARNER] remove []): existing descriptor r4:/System{/tsd-tse} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:16.341161 3071 storage/replica_raft.go:291  [n1,s1,r4/1:/System{/tsd-tse}] proposing ADD_REPLICA[(n2,s2):2LEARNER]: after=[(n1,s1):1 (n2,s2):2LEARNER] next=3
+I200226 13:31:16.344781 3071 storage/store_snapshot.go:978  [n1,replicate,s1,r4/1:/System{/tsd-tse}] sending LEARNER snapshot ed2b46fb at applied index 36
+I200226 13:31:16.345769 3147 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r4/1:/System{/tsd-tse}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):2LEARNER
+I200226 13:31:16.435764 3133 storage/replica_consistency.go:229  [n1,consistencyChecker,s1,r4/1:/System{/tsd-tse}] triggering stats recomputation to resolve delta of {ContainsEstimates:true LastUpdateNanos:1582723873074575000 IntentAge:0 GCBytesAge:0 LiveBytes:-23007 LiveCount:-1992 KeyBytes:-96357 KeyCount:-1992 ValBytes:73350 ValCount:-1992 IntentBytes:0 IntentCount:0 SysBytes:0 SysCount:0}
+I200226 13:31:16.448029 3071 storage/store_snapshot.go:1021  [n1,replicate,s1,r4/1:/System{/tsd-tse}] streamed snapshot to (n2,s2):2LEARNER: kv pairs: 1999, log entries: 0, rate-limit: 8.0 MiB/sec, 0.11s
+I200226 13:31:16.479337 3071 storage/replica_command.go:1586  [n1,replicate,s1,r4/1:/System{/tsd-tse}] change replicas (add [(n2,s2):2] remove []): existing descriptor r4:/System{/tsd-tse} [(n1,s1):1, (n2,s2):2LEARNER, next=3, gen=1]
+I200226 13:31:16.510705 3071 storage/replica_raft.go:291  [n1,s1,r4/1:/System{/tsd-tse}] proposing ADD_REPLICA[(n2,s2):2]: after=[(n1,s1):1 (n2,s2):2] next=3
+I200226 13:31:16.512760 3071 storage/replica_command.go:1586  [n1,replicate,s1,r4/1:/System{/tsd-tse}] change replicas (add [(n3,s3):3LEARNER] remove []): existing descriptor r4:/System{/tsd-tse} [(n1,s1):1, (n2,s2):2, next=3, gen=2]
+I200226 13:31:16.530156 3071 storage/replica_raft.go:291  [n1,s1,r4/1:/System{/tsd-tse}] proposing ADD_REPLICA[(n3,s3):3LEARNER]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3LEARNER] next=4
+I200226 13:31:16.534857 3071 storage/store_snapshot.go:978  [n1,replicate,s1,r4/1:/System{/tsd-tse}] sending LEARNER snapshot 5e4883b9 at applied index 42
+I200226 13:31:16.535071 3172 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r4/1:/System{/tsd-tse}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):3LEARNER
+I200226 13:31:16.574365 3071 storage/store_snapshot.go:1021  [n1,replicate,s1,r4/1:/System{/tsd-tse}] streamed snapshot to (n3,s3):3LEARNER: kv pairs: 2004, log entries: 0, rate-limit: 8.0 MiB/sec, 0.04s
+I200226 13:31:16.605564 3071 storage/replica_command.go:1586  [n1,replicate,s1,r4/1:/System{/tsd-tse}] change replicas (add [(n3,s3):3] remove []): existing descriptor r4:/System{/tsd-tse} [(n1,s1):1, (n2,s2):2, (n3,s3):3LEARNER, next=4, gen=3]
+I200226 13:31:16.617886 3071 storage/replica_raft.go:291  [n1,s1,r4/1:/System{/tsd-tse}] proposing ADD_REPLICA[(n3,s3):3]: after=[(n1,s1):1 (n2,s2):2 (n3,s3):3] next=4
+I200226 13:31:18.333835 3242 storage/replica_command.go:1586  [n1,replicate,s1,r14/1:/Table/1{8-9}] change replicas (add [(n3,s3):2LEARNER] remove []): existing descriptor r14:/Table/1{8-9} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:18.347089 3242 storage/replica_raft.go:291  [n1,s1,r14/1:/Table/1{8-9}] proposing ADD_REPLICA[(n3,s3):2LEARNER]: after=[(n1,s1):1 (n3,s3):2LEARNER] next=3
+I200226 13:31:18.351353 3242 storage/store_snapshot.go:978  [n1,replicate,s1,r14/1:/Table/1{8-9}] sending LEARNER snapshot 71b2a3d9 at applied index 17
+I200226 13:31:18.351492 3242 storage/store_snapshot.go:1021  [n1,replicate,s1,r14/1:/Table/1{8-9}] streamed snapshot to (n3,s3):2LEARNER: kv pairs: 7, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:18.351571 3252 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r14/1:/Table/1{8-9}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):2LEARNER
+I200226 13:31:18.378851 3242 storage/replica_command.go:1586  [n1,replicate,s1,r14/1:/Table/1{8-9}] change replicas (add [(n3,s3):2] remove []): existing descriptor r14:/Table/1{8-9} [(n1,s1):1, (n3,s3):2LEARNER, next=3, gen=1]
+I200226 13:31:18.389781 3242 storage/replica_raft.go:291  [n1,s1,r14/1:/Table/1{8-9}] proposing ADD_REPLICA[(n3,s3):2]: after=[(n1,s1):1 (n3,s3):2] next=3
+I200226 13:31:18.391264 3242 storage/replica_command.go:1586  [n1,replicate,s1,r14/1:/Table/1{8-9}] change replicas (add [(n2,s2):3LEARNER] remove []): existing descriptor r14:/Table/1{8-9} [(n1,s1):1, (n3,s3):2, next=3, gen=2]
+I200226 13:31:18.407252 3242 storage/replica_raft.go:291  [n1,s1,r14/1:/Table/1{8-9}] proposing ADD_REPLICA[(n2,s2):3LEARNER]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3LEARNER] next=4
+I200226 13:31:18.411665 3242 storage/store_snapshot.go:978  [n1,replicate,s1,r14/1:/Table/1{8-9}] sending LEARNER snapshot 63ff9cda at applied index 21
+I200226 13:31:18.411922 3242 storage/store_snapshot.go:1021  [n1,replicate,s1,r14/1:/Table/1{8-9}] streamed snapshot to (n2,s2):3LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:18.411961 3185 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r14/1:/Table/1{8-9}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):3LEARNER
+I200226 13:31:18.428685 3242 storage/replica_command.go:1586  [n1,replicate,s1,r14/1:/Table/1{8-9}] change replicas (add [(n2,s2):3] remove []): existing descriptor r14:/Table/1{8-9} [(n1,s1):1, (n3,s3):2, (n2,s2):3LEARNER, next=4, gen=3]
+I200226 13:31:18.438582 3242 storage/replica_raft.go:291  [n1,s1,r14/1:/Table/1{8-9}] proposing ADD_REPLICA[(n2,s2):3]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3] next=4
+I200226 13:31:21.268842 700 storage/store.go:2364  [n1,s1] sstables (read amplification = 0):
+I200226 13:31:21.269047 700 storage/store.go:2365  [n1,s1] 
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sum      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0
+
+** Compaction Stats [default] **
+Priority    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Uptime(secs): 63.8 total, 63.8 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+estimated_pending_compaction_bytes: 0 B
+I200226 13:31:21.285266 705 server/status/runtime.go:498  [n1] runtime stats: 111 MiB RSS, 228 goroutines, 121 MiB/408 KiB/135 MiB GO alloc/idle/total, 14 MiB/21 MiB CGO alloc/total, 1280.0 CGO/sec, 7.4/4.5 %(u/s)time, 0.0 %gc (0x), 1.1 MiB/865 KiB (r/w)net
+W200226 13:31:21.305486 713 server/node.go:826  [n1,summaries] health alerts detected: {Alerts:[{StoreID:1 Category:METRICS Description:ranges.underreplicated Value:3}]}
+I200226 13:31:21.340856 3344 storage/replica_command.go:1586  [n1,replicate,s1,r18/1:/Table/2{2-3}] change replicas (add [(n3,s3):2LEARNER] remove []): existing descriptor r18:/Table/2{2-3} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:21.354680 3344 storage/replica_raft.go:291  [n1,s1,r18/1:/Table/2{2-3}] proposing ADD_REPLICA[(n3,s3):2LEARNER]: after=[(n1,s1):1 (n3,s3):2LEARNER] next=3
+I200226 13:31:21.358649 3344 storage/store_snapshot.go:978  [n1,replicate,s1,r18/1:/Table/2{2-3}] sending LEARNER snapshot 5cbd705c at applied index 17
+I200226 13:31:21.358801 3344 storage/store_snapshot.go:1021  [n1,replicate,s1,r18/1:/Table/2{2-3}] streamed snapshot to (n3,s3):2LEARNER: kv pairs: 7, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:21.358820 3366 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r18/1:/Table/2{2-3}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):2LEARNER
+I200226 13:31:21.383950 3344 storage/replica_command.go:1586  [n1,replicate,s1,r18/1:/Table/2{2-3}] change replicas (add [(n3,s3):2] remove []): existing descriptor r18:/Table/2{2-3} [(n1,s1):1, (n3,s3):2LEARNER, next=3, gen=1]
+I200226 13:31:21.396087 3344 storage/replica_raft.go:291  [n1,s1,r18/1:/Table/2{2-3}] proposing ADD_REPLICA[(n3,s3):2]: after=[(n1,s1):1 (n3,s3):2] next=3
+I200226 13:31:21.397940 3344 storage/replica_command.go:1586  [n1,replicate,s1,r18/1:/Table/2{2-3}] change replicas (add [(n2,s2):3LEARNER] remove []): existing descriptor r18:/Table/2{2-3} [(n1,s1):1, (n3,s3):2, next=3, gen=2]
+I200226 13:31:21.411590 3344 storage/replica_raft.go:291  [n1,s1,r18/1:/Table/2{2-3}] proposing ADD_REPLICA[(n2,s2):3LEARNER]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3LEARNER] next=4
+I200226 13:31:21.415270 3344 storage/store_snapshot.go:978  [n1,replicate,s1,r18/1:/Table/2{2-3}] sending LEARNER snapshot 77b4f24c at applied index 21
+I200226 13:31:21.415496 3371 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r18/1:/Table/2{2-3}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):3LEARNER
+I200226 13:31:21.415528 3344 storage/store_snapshot.go:1021  [n1,replicate,s1,r18/1:/Table/2{2-3}] streamed snapshot to (n2,s2):3LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:21.446018 3344 storage/replica_command.go:1586  [n1,replicate,s1,r18/1:/Table/2{2-3}] change replicas (add [(n2,s2):3] remove []): existing descriptor r18:/Table/2{2-3} [(n1,s1):1, (n3,s3):2, (n2,s2):3LEARNER, next=4, gen=3]
+I200226 13:31:21.463536 3344 storage/replica_raft.go:291  [n1,s1,r18/1:/Table/2{2-3}] proposing ADD_REPLICA[(n2,s2):3]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3] next=4
+I200226 13:31:23.342125 3405 storage/replica_command.go:1586  [n1,replicate,s1,r2/1:/System/NodeLiveness{-Max}] change replicas (add [(n3,s3):2LEARNER] remove []): existing descriptor r2:/System/NodeLiveness{-Max} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:23.351794 3405 storage/replica_raft.go:291  [n1,s1,r2/1:/System/NodeLiveness{-Max}] proposing ADD_REPLICA[(n3,s3):2LEARNER]: after=[(n1,s1):1 (n3,s3):2LEARNER] next=3
+I200226 13:31:23.357067 3405 storage/store_snapshot.go:978  [n1,replicate,s1,r2/1:/System/NodeLiveness{-Max}] sending LEARNER snapshot 15c78f4d at applied index 51
+I200226 13:31:23.357300 3405 storage/store_snapshot.go:1021  [n1,replicate,s1,r2/1:/System/NodeLiveness{-Max}] streamed snapshot to (n3,s3):2LEARNER: kv pairs: 22, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:23.357445 3458 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r2/1:/System/NodeLiveness{-Max}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):2LEARNER
+I200226 13:31:23.392275 3405 storage/replica_command.go:1586  [n1,replicate,s1,r2/1:/System/NodeLiveness{-Max}] change replicas (add [(n3,s3):2] remove []): existing descriptor r2:/System/NodeLiveness{-Max} [(n1,s1):1, (n3,s3):2LEARNER, next=3, gen=1]
+I200226 13:31:23.404400 3405 storage/replica_raft.go:291  [n1,s1,r2/1:/System/NodeLiveness{-Max}] proposing ADD_REPLICA[(n3,s3):2]: after=[(n1,s1):1 (n3,s3):2] next=3
+I200226 13:31:23.406342 3405 storage/replica_command.go:1586  [n1,replicate,s1,r2/1:/System/NodeLiveness{-Max}] change replicas (add [(n2,s2):3LEARNER] remove []): existing descriptor r2:/System/NodeLiveness{-Max} [(n1,s1):1, (n3,s3):2, next=3, gen=2]
+I200226 13:31:23.416899 3405 storage/replica_raft.go:291  [n1,s1,r2/1:/System/NodeLiveness{-Max}] proposing ADD_REPLICA[(n2,s2):3LEARNER]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3LEARNER] next=4
+I200226 13:31:23.423052 3405 storage/store_snapshot.go:978  [n1,replicate,s1,r2/1:/System/NodeLiveness{-Max}] sending LEARNER snapshot 8cbfd0f1 at applied index 55
+I200226 13:31:23.423266 3464 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r2/1:/System/NodeLiveness{-Max}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):3LEARNER
+I200226 13:31:23.423286 3405 storage/store_snapshot.go:1021  [n1,replicate,s1,r2/1:/System/NodeLiveness{-Max}] streamed snapshot to (n2,s2):3LEARNER: kv pairs: 26, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:23.448423 3405 storage/replica_command.go:1586  [n1,replicate,s1,r2/1:/System/NodeLiveness{-Max}] change replicas (add [(n2,s2):3] remove []): existing descriptor r2:/System/NodeLiveness{-Max} [(n1,s1):1, (n3,s3):2, (n2,s2):3LEARNER, next=4, gen=3]
+I200226 13:31:23.464226 3405 storage/replica_raft.go:291  [n1,s1,r2/1:/System/NodeLiveness{-Max}] proposing ADD_REPLICA[(n2,s2):3]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3] next=4
+I200226 13:31:25.350789 3482 storage/replica_command.go:1586  [n1,replicate,s1,r21/1:/Table/2{5-6}] change replicas (add [(n3,s3):2LEARNER] remove []): existing descriptor r21:/Table/2{5-6} [(n1,s1):1, next=2, gen=0]
+I200226 13:31:25.364111 3482 storage/replica_raft.go:291  [n1,s1,r21/1:/Table/2{5-6}] proposing ADD_REPLICA[(n3,s3):2LEARNER]: after=[(n1,s1):1 (n3,s3):2LEARNER] next=3
+I200226 13:31:25.367271 3482 storage/store_snapshot.go:978  [n1,replicate,s1,r21/1:/Table/2{5-6}] sending LEARNER snapshot 6e9a72a5 at applied index 17
+I200226 13:31:25.367471 3482 storage/store_snapshot.go:1021  [n1,replicate,s1,r21/1:/Table/2{5-6}] streamed snapshot to (n3,s3):2LEARNER: kv pairs: 7, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:25.367533 3487 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r21/1:/Table/2{5-6}] skipping snapshot; replica is likely a learner in the process of being added: (n3,s3):2LEARNER
+I200226 13:31:25.389710 3482 storage/replica_command.go:1586  [n1,replicate,s1,r21/1:/Table/2{5-6}] change replicas (add [(n3,s3):2] remove []): existing descriptor r21:/Table/2{5-6} [(n1,s1):1, (n3,s3):2LEARNER, next=3, gen=1]
+I200226 13:31:25.398942 3482 storage/replica_raft.go:291  [n1,s1,r21/1:/Table/2{5-6}] proposing ADD_REPLICA[(n3,s3):2]: after=[(n1,s1):1 (n3,s3):2] next=3
+I200226 13:31:25.400092 3482 storage/replica_command.go:1586  [n1,replicate,s1,r21/1:/Table/2{5-6}] change replicas (add [(n2,s2):3LEARNER] remove []): existing descriptor r21:/Table/2{5-6} [(n1,s1):1, (n3,s3):2, next=3, gen=2]
+I200226 13:31:25.418542 3482 storage/replica_raft.go:291  [n1,s1,r21/1:/Table/2{5-6}] proposing ADD_REPLICA[(n2,s2):3LEARNER]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3LEARNER] next=4
+I200226 13:31:25.424063 3482 storage/store_snapshot.go:978  [n1,replicate,s1,r21/1:/Table/2{5-6}] sending LEARNER snapshot 96269b07 at applied index 21
+I200226 13:31:25.424314 3557 storage/raft_snapshot_queue.go:125  [n1,raftsnapshot,s1,r21/1:/Table/2{5-6}] skipping snapshot; replica is likely a learner in the process of being added: (n2,s2):3LEARNER
+I200226 13:31:25.424356 3482 storage/store_snapshot.go:1021  [n1,replicate,s1,r21/1:/Table/2{5-6}] streamed snapshot to (n2,s2):3LEARNER: kv pairs: 11, log entries: 0, rate-limit: 8.0 MiB/sec, 0.00s
+I200226 13:31:25.443975 3482 storage/replica_command.go:1586  [n1,replicate,s1,r21/1:/Table/2{5-6}] change replicas (add [(n2,s2):3] remove []): existing descriptor r21:/Table/2{5-6} [(n1,s1):1, (n3,s3):2, (n2,s2):3LEARNER, next=4, gen=3]
+I200226 13:31:25.453462 3482 storage/replica_raft.go:291  [n1,s1,r21/1:/Table/2{5-6}] proposing ADD_REPLICA[(n2,s2):3]: after=[(n1,s1):1 (n3,s3):2 (n2,s2):3] next=4
+I200226 13:31:31.286434 705 server/status/runtime.go:498  [n1] runtime stats: 127 MiB RSS, 230 goroutines, 83 MiB/92 MiB/202 MiB GO alloc/idle/total, 14 MiB/21 MiB CGO alloc/total, 327.8 CGO/sec, 4.0/2.3 %(u/s)time, 0.0 %gc (1x), 832 KiB/578 KiB (r/w)net
+I200226 13:31:32.523041 3481 sql/event_log.go:130  [n1,client=127.0.0.1:63477,user=root] Event: "create_database", target: 52, info: {DatabaseName:bank Statement:CREATE DATABASE bank User:root}
+I200226 13:31:35.615142 3481 sql/event_log.go:130  [n1,client=127.0.0.1:63477,user=root] Event: "create_table", target: 53, info: {TableName:bank.public.accounts Statement:CREATE TABLE bank.public.accounts (id INT8 PRIMARY KEY, balance DECIMAL) User:root}
+I200226 13:31:35.617967 3842 storage/replica_command.go:411  [n1,split,s1,r24/1:/{Table/28-Max}] initiating a split of this range at key /Table/53 [r25] (zone config)
+I200226 13:31:41.286799 705 server/status/runtime.go:498  [n1] runtime stats: 126 MiB RSS, 232 goroutines, 98 MiB/80 MiB/202 MiB GO alloc/idle/total, 14 MiB/22 MiB CGO alloc/total, 112.3 CGO/sec, 2.6/1.7 %(u/s)time, 0.0 %gc (0x), 824 KiB/528 KiB (r/w)net
+I200226 13:31:51.289140 705 server/status/runtime.go:498  [n1] runtime stats: 125 MiB RSS, 232 goroutines, 108 MiB/71 MiB/202 MiB GO alloc/idle/total, 14 MiB/22 MiB CGO alloc/total, 41.3 CGO/sec, 1.8/1.3 %(u/s)time, 0.0 %gc (0x), 558 KiB/324 KiB (r/w)net
+I200226 13:32:01.268378 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 524/227 sent/received, bytes 199764B/81387B sent/received)
+  3: localhost:26259 (58s)
+  2: localhost:26258 (59s)
+gossip connectivity
+  n2 [sentinel];
+  n2 -> n1; n3 -> n1;
+I200226 13:32:01.288770 705 server/status/runtime.go:498  [n1] runtime stats: 120 MiB RSS, 230 goroutines, 120 MiB/61 MiB/202 MiB GO alloc/idle/total, 14 MiB/22 MiB CGO alloc/total, 52.7 CGO/sec, 1.9/1.4 %(u/s)time, 0.0 %gc (0x), 569 KiB/335 KiB (r/w)net
+I200226 13:32:11.295617 705 server/status/runtime.go:498  [n1] runtime stats: 127 MiB RSS, 229 goroutines, 132 MiB/50 MiB/202 MiB GO alloc/idle/total, 14 MiB/22 MiB CGO alloc/total, 61.9 CGO/sec, 2.1/1.4 %(u/s)time, 0.0 %gc (0x), 654 KiB/418 KiB (r/w)net
+I200226 13:32:20.224744 4490 sql/event_log.go:130  [n1,client=127.0.0.1:63487,user=root] Event: "create_database", target: 54, info: {DatabaseName:movr Statement:CREATE DATABASE IF NOT EXISTS movr User:root}
+I200226 13:32:20.243263 4490 sql/event_log.go:130  [n1,client=127.0.0.1:63487,user=root] Event: "create_table", target: 55, info: {TableName:movr.public.users Statement:CREATE TABLE IF NOT EXISTS users (id UUID NOT NULL, city VARCHAR NOT NULL, name VARCHAR NULL, address VARCHAR NULL, credit_card VARCHAR NULL, PRIMARY KEY (city ASC, id ASC)) User:root}
+I200226 13:32:20.244781 4492 storage/replica_command.go:411  [n1,split,s1,r25/1:/{Table/53-Max}] initiating a split of this range at key /Table/55 [r26] (zone config)
+I200226 13:32:20.274061 4490 sql/event_log.go:130  [n1,client=127.0.0.1:63487,user=root] Event: "create_table", target: 56, info: {TableName:movr.public.vehicles Statement:CREATE TABLE IF NOT EXISTS vehicles (id UUID NOT NULL, city VARCHAR NOT NULL, type VARCHAR NULL, owner_id UUID NULL, creation_time TIMESTAMP NULL, status VARCHAR NULL, current_location VARCHAR NULL, ext JSONB NULL, PRIMARY KEY (city ASC, id ASC), INDEX vehicles_auto_index_fk_city_ref_users (city ASC, owner_id ASC)) User:root}
+I200226 13:32:20.275361 4700 storage/replica_command.go:411  [n1,split,s1,r26/1:/{Table/55-Max}] initiating a split of this range at key /Table/56 [r27] (zone config)
+I200226 13:32:20.301756 4490 sql/event_log.go:130  [n1,client=127.0.0.1:63487,user=root] Event: "create_table", target: 57, info: {TableName:movr.public.rides Statement:CREATE TABLE IF NOT EXISTS rides (id UUID NOT NULL, city VARCHAR NOT NULL, vehicle_city VARCHAR NULL, rider_id UUID NULL, vehicle_id UUID NULL, start_address VARCHAR NULL, end_address VARCHAR NULL, start_time TIMESTAMP NULL, end_time TIMESTAMP NULL, revenue DECIMAL(10,2) NULL, PRIMARY KEY (city ASC, id ASC), INDEX rides_auto_index_fk_city_ref_users (city ASC, rider_id ASC), INDEX rides_auto_index_fk_vehicle_city_ref_vehicles (vehicle_city ASC, vehicle_id ASC), CONSTRAINT check_vehicle_city_city CHECK (vehicle_city = city)) User:root}
+I200226 13:32:20.304392 4773 storage/replica_command.go:411  [n1,split,s1,r27/1:/{Table/56-Max}] initiating a split of this range at key /Table/57 [r28] (zone config)
+I200226 13:32:20.328219 4490 sql/event_log.go:130  [n1,client=127.0.0.1:63487,user=root] Event: "create_table", target: 58, info: {TableName:movr.public.vehicle_location_histories Statement:CREATE TABLE IF NOT EXISTS vehicle_location_histories (city VARCHAR NOT NULL, ride_id UUID NOT NULL, "timestamp" TIMESTAMP NOT NULL, lat FLOAT8 NULL, long FLOAT8 NULL, PRIMARY KEY (city ASC, ride_id ASC, "timestamp" ASC)) User:root}
+I200226 13:32:20.331927 4857 storage/replica_command.go:411  [n1,split,s1,r28/1:/{Table/57-Max}] initiating a split of this range at key /Table/58 [r29] (zone config)
+I200226 13:32:20.360621 4490 sql/event_log.go:130  [n1,client=127.0.0.1:63487,user=root] Event: "create_table", target: 59, info: {TableName:movr.public.promo_codes Statement:CREATE TABLE IF NOT EXISTS promo_codes (code VARCHAR NOT NULL, description VARCHAR NULL, creation_time TIMESTAMP NULL, expiration_time TIMESTAMP NULL, rules JSONB NULL, PRIMARY KEY (code ASC)) User:root}
+I200226 13:32:20.361761 4913 storage/replica_command.go:411  [n1,split,s1,r29/1:/{Table/58-Max}] initiating a split of this range at key /Table/59 [r30] (zone config)
+I200226 13:32:20.388881 4490 sql/event_log.go:130  [n1,client=127.0.0.1:63487,user=root] Event: "create_table", target: 60, info: {TableName:movr.public.user_promo_codes Statement:CREATE TABLE IF NOT EXISTS user_promo_codes (city VARCHAR NOT NULL, user_id UUID NOT NULL, code VARCHAR NOT NULL, "timestamp" TIMESTAMP NULL, usage_count INT8 NULL, PRIMARY KEY (city ASC, user_id ASC, code ASC)) User:root}
+I200226 13:32:20.389727 5021 storage/replica_command.go:411  [n1,split,s1,r30/1:/{Table/59-Max}] initiating a split of this range at key /Table/60 [r31] (zone config)
+I200226 13:32:20.815489 5253 sql/event_log.go:130  [n1,client=127.0.0.1:63595,user=root] Event: "set_cluster_setting", target: 0, info: {SettingName:kv.range_merge.queue_enabled Value:false User:root}
+I200226 13:32:20.841731 5253 sql/event_log.go:130  [n1,client=127.0.0.1:63595,user=root] Event: "set_cluster_setting", target: 0, info: {SettingName:kv.range_merge.queue_enabled Value:false User:root}
+I200226 13:32:20.869402 5253 sql/event_log.go:130  [n1,client=127.0.0.1:63595,user=root] Event: "set_cluster_setting", target: 0, info: {SettingName:kv.range_merge.queue_enabled Value:false User:root}
+I200226 13:32:20.889418 5253 sql/event_log.go:130  [n1,client=127.0.0.1:63595,user=root] Event: "set_cluster_setting", target: 0, info: {SettingName:kv.range_merge.queue_enabled Value:false User:root}
+I200226 13:32:20.910476 5253 sql/event_log.go:130  [n1,client=127.0.0.1:63595,user=root] Event: "set_cluster_setting", target: 0, info: {SettingName:kv.range_merge.queue_enabled Value:false User:root}
+I200226 13:32:20.935773 5253 sql/event_log.go:130  [n1,client=127.0.0.1:63595,user=root] Event: "set_cluster_setting", target: 0, info: {SettingName:kv.range_merge.queue_enabled Value:false User:root}
+I200226 13:32:20.946454 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root] publish: descID=55 (users) version=2 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:20.955261 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root] publish: descID=56 (vehicles) version=2 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:20.977130 5208 sql/event_log.go:130  [n1,client=127.0.0.1:63582,user=root] Event: "alter_table", target: 56, info: {TableName:movr.public.vehicles Statement:ALTER TABLE vehicles ADD FOREIGN KEY (city, owner_id) REFERENCES users (city, id) User:root MutationID:1 CascadeDroppedViews:[]}
+I200226 13:32:20.978588 5208 sql/schema_changer.go:965  [n1,client=127.0.0.1:63582,user=root,scExec] schema change on users (55 v2) mutation 0 starting execution...
+I200226 13:32:20.978625 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 55...
+I200226 13:32:20.987642 5671 sql/lease.go:921  new lease: 55("users") ver=2:1582724254.099665210,0, refcount=0
+I200226 13:32:20.987780 5208 sql/lease.go:326  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for 1 leases to expire: desc=[{users 55 1}]
+I200226 13:32:20.999430 5752 sql/lease.go:921  new lease: 56("vehicles") ver=2:1582724248.795387985,0, refcount=0
+I200226 13:32:21.015846 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 55... done (at v 2)
+I200226 13:32:21.016723 5208 sql/schema_changer.go:965  [n1,client=127.0.0.1:63582,user=root,scExec] schema change on vehicles (56 v2) mutation 1 starting execution...
+I200226 13:32:21.070519 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root,scExec] publish: descID=56 (vehicles) version=3 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:21.091415 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 56...
+I200226 13:32:21.100363 5844 sql/lease.go:921  new lease: 56("vehicles") ver=3:1582724248.796387985,0, refcount=0
+I200226 13:32:21.101354 5208 sql/lease.go:326  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for 1 leases to expire: desc=[{vehicles 56 2}]
+I200226 13:32:21.135614 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 56... done (at v 3)
+I200226 13:32:21.153921 5208 sql/backfill.go:143  [n1,client=127.0.0.1:63582,user=root,scExec] Running backfill for "vehicles", v=3, m=1
+I200226 13:32:21.166695 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root,scExec] publish: descID=56 (vehicles) version=4 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:21.166739 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root,scExec] publish: descID=55 (users) version=3 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:21.169345 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 56...
+I200226 13:32:21.178947 5208 sql/lease.go:326  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for 1 leases to expire: desc=[{vehicles 56 3}]
+I200226 13:32:21.179508 5759 sql/lease.go:921  new lease: 55("users") ver=3:1582724254.100665210,0, refcount=0
+I200226 13:32:21.186658 5976 sql/lease.go:921  new lease: 56("vehicles") ver=4:1582724248.797387985,0, refcount=0
+I200226 13:32:21.218636 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 56... done (at v 4)
+I200226 13:32:21.218650 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 55...
+I200226 13:32:21.225803 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 55... done (at v 3)
+I200226 13:32:21.255677 6007 sql/check.go:276  [n1,client=127.0.0.1:63582,user=root,scExec] Validating FK "fk_city_ref_users" ("vehicles" [[city owner_id id]] -> "users" [[city id]]) with query "SELECT s.city, s.owner_id, s.id FROM \n\t\t  (SELECT city, owner_id, id FROM [56 AS src]@{IGNORE_FOREIGN_KEYS} WHERE city IS NOT NULL AND owner_id IS NOT NULL) AS s\n\t\t\tLEFT OUTER JOIN\n\t\t\t(SELECT * FROM [55 AS target]) AS t\n\t\t\tON s.city = t.city AND s.owner_id = t.id\n\t\t WHERE t.city IS NULL  LIMIT 1"
+I200226 13:32:21.266355 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root,scExec] publish: descID=56 (vehicles) version=5 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:21.303999 705 server/status/runtime.go:498  [n1] runtime stats: 150 MiB RSS, 242 goroutines, 137 MiB/46 MiB/202 MiB GO alloc/idle/total, 17 MiB/24 MiB CGO alloc/total, 617.8 CGO/sec, 10.8/4.1 %(u/s)time, 0.0 %gc (1x), 2.7 MiB/2.5 MiB (r/w)net
+I200226 13:32:21.331791 5208 sql/event_log.go:130  [n1,client=127.0.0.1:63582,user=root,scExec] Event: "finish_schema_change", target: 56, info: {MutationID:1}
+I200226 13:32:21.331827 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 56...
+I200226 13:32:21.347943 6018 sql/lease.go:921  new lease: 56("vehicles") ver=5:1582724253.298604725,0, refcount=0
+I200226 13:32:21.351435 5208 sql/lease.go:326  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for 1 leases to expire: desc=[{vehicles 56 4}]
+I200226 13:32:21.380939 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 56... done (at v 5)
+I200226 13:32:21.396214 5253 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63595,user=root] publish: descID=55 (users) version=4 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:21.405811 5253 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63595,user=root] publish: descID=57 (rides) version=2 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:21.424055 5253 sql/event_log.go:130  [n1,client=127.0.0.1:63595,user=root] Event: "alter_table", target: 57, info: {TableName:movr.public.rides Statement:ALTER TABLE rides ADD FOREIGN KEY (city, rider_id) REFERENCES users (city, id) User:root MutationID:1 CascadeDroppedViews:[]}
+I200226 13:32:21.425853 5253 sql/schema_changer.go:965  [n1,client=127.0.0.1:63595,user=root,scExec] schema change on users (55 v4) mutation 0 starting execution...
+I200226 13:32:21.425873 5253 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 55...
+I200226 13:32:21.435043 6159 sql/lease.go:921  new lease: 55("users") ver=4:1582724254.101665210,0, refcount=0
+I200226 13:32:21.435605 5253 sql/lease.go:326  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for 1 leases to expire: desc=[{users 55 3}]
+I200226 13:32:21.443517 6245 sql/lease.go:921  new lease: 57("rides") ver=2:1582724255.051547344,0, refcount=0
+I200226 13:32:21.470630 5253 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 55... done (at v 4)
+I200226 13:32:21.472624 5253 sql/schema_changer.go:965  [n1,client=127.0.0.1:63595,user=root,scExec] schema change on rides (57 v2) mutation 1 starting execution...
+I200226 13:32:21.521935 5253 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63595,user=root,scExec] publish: descID=57 (rides) version=3 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:21.539505 5253 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 57...
+I200226 13:32:21.549436 5253 sql/lease.go:326  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for 1 leases to expire: desc=[{rides 57 2}]
+I200226 13:32:21.552400 6324 sql/lease.go:921  new lease: 57("rides") ver=3:1582724255.052547344,0, refcount=0
+I200226 13:32:21.575832 5253 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 57... done (at v 3)
+I200226 13:32:21.599896 5253 sql/backfill.go:143  [n1,client=127.0.0.1:63595,user=root,scExec] Running backfill for "rides", v=3, m=1
+I200226 13:32:21.615894 5253 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63595,user=root,scExec] publish: descID=57 (rides) version=4 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:21.615939 5253 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63595,user=root,scExec] publish: descID=55 (users) version=5 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:21.619220 5253 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 57...
+I200226 13:32:21.628217 5253 sql/lease.go:326  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for 1 leases to expire: desc=[{rides 57 3}]
+I200226 13:32:21.630898 6300 sql/lease.go:921  new lease: 55("users") ver=5:1582724254.102665210,0, refcount=0
+I200226 13:32:21.640412 6349 sql/lease.go:921  new lease: 57("rides") ver=4:1582724255.053547344,0, refcount=0
+I200226 13:32:21.657660 5253 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 57... done (at v 4)
+I200226 13:32:21.657677 5253 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 55...
+I200226 13:32:21.662520 5253 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 55... done (at v 5)
+I200226 13:32:21.682584 6487 sql/check.go:276  [n1,client=127.0.0.1:63595,user=root,scExec] Validating FK "fk_city_ref_users" ("rides" [[city rider_id id]] -> "users" [[city id]]) with query "SELECT s.city, s.rider_id, s.id FROM \n\t\t  (SELECT city, rider_id, id FROM [57 AS src]@{IGNORE_FOREIGN_KEYS} WHERE city IS NOT NULL AND rider_id IS NOT NULL) AS s\n\t\t\tLEFT OUTER JOIN\n\t\t\t(SELECT * FROM [55 AS target]) AS t\n\t\t\tON s.city = t.city AND s.rider_id = t.id\n\t\t WHERE t.city IS NULL  LIMIT 1"
+I200226 13:32:21.697308 5253 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63595,user=root,scExec] publish: descID=57 (rides) version=5 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:21.727846 5253 sql/event_log.go:130  [n1,client=127.0.0.1:63595,user=root,scExec] Event: "finish_schema_change", target: 57, info: {MutationID:1}
+I200226 13:32:21.727873 5253 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 57...
+I200226 13:32:21.736875 5253 sql/lease.go:326  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for 1 leases to expire: desc=[{rides 57 4}]
+I200226 13:32:21.739013 6478 sql/lease.go:921  new lease: 57("rides") ver=5:1582724255.054547344,0, refcount=0
+I200226 13:32:21.767014 5253 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 57... done (at v 5)
+I200226 13:32:21.783878 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root] publish: descID=56 (vehicles) version=6 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:21.793393 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root] publish: descID=57 (rides) version=6 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:21.812226 5208 sql/event_log.go:130  [n1,client=127.0.0.1:63582,user=root] Event: "alter_table", target: 57, info: {TableName:movr.public.rides Statement:ALTER TABLE rides ADD FOREIGN KEY (vehicle_city, vehicle_id) REFERENCES vehicles (city, id) User:root MutationID:2 CascadeDroppedViews:[]}
+I200226 13:32:21.813787 5208 sql/schema_changer.go:965  [n1,client=127.0.0.1:63582,user=root,scExec] schema change on vehicles (56 v6) mutation 0 starting execution...
+I200226 13:32:21.813805 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 56...
+I200226 13:32:21.821974 6539 sql/lease.go:921  new lease: 56("vehicles") ver=6:1582724253.299604725,0, refcount=0
+I200226 13:32:21.823558 5208 sql/lease.go:326  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for 1 leases to expire: desc=[{vehicles 56 5}]
+I200226 13:32:21.830517 6717 sql/lease.go:921  new lease: 57("rides") ver=6:1582724255.055547344,0, refcount=0
+I200226 13:32:21.850167 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 56... done (at v 6)
+I200226 13:32:21.851071 5208 sql/schema_changer.go:965  [n1,client=127.0.0.1:63582,user=root,scExec] schema change on rides (57 v6) mutation 2 starting execution...
+I200226 13:32:21.904369 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root,scExec] publish: descID=57 (rides) version=7 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:21.922509 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 57...
+I200226 13:32:21.936935 5208 sql/lease.go:326  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for 1 leases to expire: desc=[{rides 57 6}]
+I200226 13:32:21.937443 6780 sql/lease.go:921  new lease: 57("rides") ver=7:1582724255.056547344,0, refcount=0
+I200226 13:32:22.058320 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 57... done (at v 7)
+I200226 13:32:22.100863 5208 sql/backfill.go:143  [n1,client=127.0.0.1:63582,user=root,scExec] Running backfill for "rides", v=7, m=2
+I200226 13:32:22.121628 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root,scExec] publish: descID=57 (rides) version=8 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:22.121687 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root,scExec] publish: descID=56 (vehicles) version=7 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:22.139790 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 57...
+I200226 13:32:22.161884 5208 sql/lease.go:326  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for 1 leases to expire: desc=[{rides 57 7}]
+I200226 13:32:22.163303 6815 sql/lease.go:921  new lease: 56("vehicles") ver=7:1582724253.300604725,0, refcount=0
+I200226 13:32:22.174892 6950 sql/lease.go:921  new lease: 57("rides") ver=8:1582724255.057547344,0, refcount=0
+I200226 13:32:22.188926 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 57... done (at v 8)
+I200226 13:32:22.188943 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 56...
+I200226 13:32:22.197916 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 56... done (at v 7)
+I200226 13:32:22.224551 6968 sql/check.go:276  [n1,client=127.0.0.1:63582,user=root,scExec] Validating FK "fk_vehicle_city_ref_vehicles" ("rides" [[vehicle_city vehicle_id city id]] -> "vehicles" [[city id]]) with query "SELECT s.vehicle_city, s.vehicle_id, s.city, s.id FROM \n\t\t  (SELECT vehicle_city, vehicle_id, city, id FROM [57 AS src]@{IGNORE_FOREIGN_KEYS} WHERE vehicle_city IS NOT NULL AND vehicle_id IS NOT NULL) AS s\n\t\t\tLEFT OUTER JOIN\n\t\t\t(SELECT * FROM [56 AS target]) AS t\n\t\t\tON s.vehicle_city = t.city AND s.vehicle_id = t.id\n\t\t WHERE t.city IS NULL  LIMIT 1"
+I200226 13:32:22.240801 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root,scExec] publish: descID=57 (rides) version=9 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:22.275062 5208 sql/event_log.go:130  [n1,client=127.0.0.1:63582,user=root,scExec] Event: "finish_schema_change", target: 57, info: {MutationID:2}
+I200226 13:32:22.275091 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 57...
+I200226 13:32:22.288737 6878 sql/lease.go:921  new lease: 57("rides") ver=9:1582724255.058547344,0, refcount=0
+I200226 13:32:22.290305 5208 sql/lease.go:326  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for 1 leases to expire: desc=[{rides 57 8}]
+I200226 13:32:22.325145 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 57... done (at v 9)
+I200226 13:32:22.344241 5253 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63595,user=root] publish: descID=57 (rides) version=10 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:22.351995 5253 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63595,user=root] publish: descID=58 (vehicle_location_histories) version=2 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:22.370514 5253 sql/event_log.go:130  [n1,client=127.0.0.1:63595,user=root] Event: "alter_table", target: 58, info: {TableName:movr.public.vehicle_location_histories Statement:ALTER TABLE vehicle_location_histories ADD FOREIGN KEY (city, ride_id) REFERENCES rides (city, id) User:root MutationID:1 CascadeDroppedViews:[]}
+I200226 13:32:22.372422 5253 sql/schema_changer.go:965  [n1,client=127.0.0.1:63595,user=root,scExec] schema change on rides (57 v10) mutation 0 starting execution...
+I200226 13:32:22.372441 5253 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 57...
+I200226 13:32:22.381245 7120 sql/lease.go:921  new lease: 57("rides") ver=10:1582724255.059547344,0, refcount=0
+I200226 13:32:22.384502 5253 sql/lease.go:326  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for 1 leases to expire: desc=[{rides 57 9}]
+I200226 13:32:22.387971 6983 sql/lease.go:921  new lease: 58("vehicle_location_histories") ver=2:1582724253.673394368,0, refcount=0
+I200226 13:32:22.412103 5253 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 57... done (at v 10)
+I200226 13:32:22.414450 5253 sql/schema_changer.go:965  [n1,client=127.0.0.1:63595,user=root,scExec] schema change on vehicle_location_histories (58 v2) mutation 1 starting execution...
+I200226 13:32:22.503722 5253 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63595,user=root,scExec] publish: descID=58 (vehicle_location_histories) version=3 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:22.527358 5253 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 58...
+I200226 13:32:22.535912 5253 sql/lease.go:326  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for 1 leases to expire: desc=[{vehicle_location_histories 58 2}]
+I200226 13:32:22.540355 7288 sql/lease.go:921  new lease: 58("vehicle_location_histories") ver=3:1582724253.674394368,0, refcount=0
+I200226 13:32:22.567313 5253 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 58... done (at v 3)
+I200226 13:32:22.581775 5253 sql/backfill.go:143  [n1,client=127.0.0.1:63595,user=root,scExec] Running backfill for "vehicle_location_histories", v=3, m=1
+I200226 13:32:22.594878 5253 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63595,user=root,scExec] publish: descID=58 (vehicle_location_histories) version=4 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:22.594913 5253 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63595,user=root,scExec] publish: descID=57 (rides) version=11 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:22.598157 5253 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 58...
+I200226 13:32:22.607506 5253 sql/lease.go:326  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for 1 leases to expire: desc=[{vehicle_location_histories 58 3}]
+I200226 13:32:22.608286 7307 sql/lease.go:921  new lease: 57("rides") ver=11:1582724255.060547344,0, refcount=0
+I200226 13:32:22.616408 7438 sql/lease.go:921  new lease: 58("vehicle_location_histories") ver=4:1582724253.675394368,0, refcount=0
+I200226 13:32:22.639739 5253 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 58... done (at v 4)
+I200226 13:32:22.639752 5253 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 57...
+I200226 13:32:22.645005 5253 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 57... done (at v 11)
+I200226 13:32:22.662311 7441 sql/check.go:276  [n1,client=127.0.0.1:63595,user=root,scExec] Validating FK "fk_city_ref_rides" ("vehicle_location_histories" [[city ride_id timestamp]] -> "rides" [[city id]]) with query "SELECT s.city, s.ride_id, s.\"timestamp\" FROM \n\t\t  (SELECT city, ride_id, \"timestamp\" FROM [58 AS src]@{IGNORE_FOREIGN_KEYS} WHERE city IS NOT NULL AND ride_id IS NOT NULL) AS s\n\t\t\tLEFT OUTER JOIN\n\t\t\t(SELECT * FROM [57 AS target]) AS t\n\t\t\tON s.city = t.city AND s.ride_id = t.id\n\t\t WHERE t.city IS NULL  LIMIT 1"
+I200226 13:32:22.674584 5253 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63595,user=root,scExec] publish: descID=58 (vehicle_location_histories) version=5 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:22.710298 5253 sql/event_log.go:130  [n1,client=127.0.0.1:63595,user=root,scExec] Event: "finish_schema_change", target: 58, info: {MutationID:1}
+I200226 13:32:22.710327 5253 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 58...
+I200226 13:32:22.721398 5253 sql/lease.go:326  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for 1 leases to expire: desc=[{vehicle_location_histories 58 4}]
+I200226 13:32:22.722618 7373 sql/lease.go:921  new lease: 58("vehicle_location_histories") ver=5:1582724253.676394368,0, refcount=0
+I200226 13:32:22.750012 5253 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63595,user=root,scExec] waiting for a single version of table 58... done (at v 5)
+I200226 13:32:22.768559 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root] publish: descID=55 (users) version=6 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:22.775794 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root] publish: descID=60 (user_promo_codes) version=2 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:22.794100 5208 sql/event_log.go:130  [n1,client=127.0.0.1:63582,user=root] Event: "alter_table", target: 60, info: {TableName:movr.public.user_promo_codes Statement:ALTER TABLE user_promo_codes ADD FOREIGN KEY (city, user_id) REFERENCES users (city, id) User:root MutationID:1 CascadeDroppedViews:[]}
+I200226 13:32:22.796920 5208 sql/schema_changer.go:965  [n1,client=127.0.0.1:63582,user=root,scExec] schema change on users (55 v6) mutation 0 starting execution...
+I200226 13:32:22.800076 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 55...
+I200226 13:32:22.810740 5208 sql/lease.go:326  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for 1 leases to expire: desc=[{users 55 5}]
+I200226 13:32:22.811655 7465 sql/lease.go:921  new lease: 55("users") ver=6:1582724254.103665210,0, refcount=0
+I200226 13:32:22.838475 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 55... done (at v 6)
+I200226 13:32:22.839269 5208 sql/schema_changer.go:965  [n1,client=127.0.0.1:63582,user=root,scExec] schema change on user_promo_codes (60 v2) mutation 1 starting execution...
+I200226 13:32:22.891059 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root,scExec] publish: descID=60 (user_promo_codes) version=3 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:22.906721 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 60...
+I200226 13:32:22.912846 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 60... done (at v 3)
+I200226 13:32:22.925273 5208 sql/backfill.go:143  [n1,client=127.0.0.1:63582,user=root,scExec] Running backfill for "user_promo_codes", v=3, m=1
+I200226 13:32:22.937318 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root,scExec] publish: descID=60 (user_promo_codes) version=4 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:22.937345 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root,scExec] publish: descID=55 (users) version=7 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:22.940455 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 60...
+I200226 13:32:22.949113 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 60... done (at v 4)
+I200226 13:32:22.949141 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 55...
+I200226 13:32:22.949857 7750 sql/lease.go:921  new lease: 55("users") ver=7:1582724254.104665210,0, refcount=0
+I200226 13:32:22.954726 5208 sql/lease.go:326  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for 1 leases to expire: desc=[{users 55 6}]
+I200226 13:32:22.981539 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 55... done (at v 7)
+I200226 13:32:22.997359 7870 sql/check.go:276  [n1,client=127.0.0.1:63582,user=root,scExec] Validating FK "fk_city_ref_users" ("user_promo_codes" [[city user_id code]] -> "users" [[city id]]) with query "SELECT s.city, s.user_id, s.code FROM \n\t\t  (SELECT city, user_id, code FROM [60 AS src]@{IGNORE_FOREIGN_KEYS} WHERE city IS NOT NULL AND user_id IS NOT NULL) AS s\n\t\t\tLEFT OUTER JOIN\n\t\t\t(SELECT * FROM [55 AS target]) AS t\n\t\t\tON s.city = t.city AND s.user_id = t.id\n\t\t WHERE t.city IS NULL  LIMIT 1"
+I200226 13:32:23.011639 5208 sql/sqlbase/structured.go:1529  [n1,client=127.0.0.1:63582,user=root,scExec] publish: descID=60 (user_promo_codes) version=5 mtime=1970-01-01 00:00:00 +0000 UTC
+I200226 13:32:23.043630 5208 sql/event_log.go:130  [n1,client=127.0.0.1:63582,user=root,scExec] Event: "finish_schema_change", target: 60, info: {MutationID:1}
+I200226 13:32:23.043672 5208 sql/schema_changer.go:1258  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 60...
+I200226 13:32:23.057068 5208 sql/schema_changer.go:1260  [n1,client=127.0.0.1:63582,user=root,scExec] waiting for a single version of table 60... done (at v 5)
+I200226 13:32:31.297943 705 server/status/runtime.go:498  [n1] runtime stats: 158 MiB RSS, 229 goroutines, 125 MiB/57 MiB/202 MiB GO alloc/idle/total, 25 MiB/32 MiB CGO alloc/total, 329.0 CGO/sec, 11.3/5.1 %(u/s)time, 0.0 %gc (1x), 2.2 MiB/2.0 MiB (r/w)net
+I200226 13:32:41.302035 705 server/status/runtime.go:498  [n1] runtime stats: 159 MiB RSS, 230 goroutines, 135 MiB/48 MiB/202 MiB GO alloc/idle/total, 25 MiB/33 MiB CGO alloc/total, 37.0 CGO/sec, 1.6/1.1 %(u/s)time, 0.0 %gc (0x), 547 KiB/309 KiB (r/w)net
+I200226 13:32:51.322089 705 server/status/runtime.go:498  [n1] runtime stats: 160 MiB RSS, 230 goroutines, 147 MiB/37 MiB/202 MiB GO alloc/idle/total, 25 MiB/33 MiB CGO alloc/total, 300.6 CGO/sec, 2.9/1.7 %(u/s)time, 0.0 %gc (0x), 617 KiB/392 KiB (r/w)net
+I200226 13:33:01.269881 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 957/450 sent/received, bytes 931042B/779931B sent/received)
+  2: localhost:26258 (1m59s)
+  3: localhost:26259 (1m58s)
+I200226 13:33:01.303046 705 server/status/runtime.go:498  [n1] runtime stats: 178 MiB RSS, 232 goroutines, 119 MiB/59 MiB/204 MiB GO alloc/idle/total, 23 MiB/33 MiB CGO alloc/total, 3097.4 CGO/sec, 61.3/24.3 %(u/s)time, 0.0 %gc (4x), 6.8 MiB/6.6 MiB (r/w)net
+I200226 13:33:11.304981 705 server/status/runtime.go:498  [n1] runtime stats: 183 MiB RSS, 231 goroutines, 134 MiB/49 MiB/204 MiB GO alloc/idle/total, 21 MiB/33 MiB CGO alloc/total, 3346.8 CGO/sec, 72.6/27.4 %(u/s)time, 0.0 %gc (5x), 9.2 MiB/9.0 MiB (r/w)net
+I200226 13:33:12.376580 698 storage/store_rebalancer.go:232  [n1,s1,store-rebalancer] considering load-based lease transfers for s1 with 167.48 qps (mean=64.43, upperThreshold=164.43)
+I200226 13:33:12.379514 698 storage/store_rebalancer.go:267  [n1,s1,store-rebalancer] load-based lease transfers successfully brought s1 down to 105.26 qps (mean=64.43, upperThreshold=164.43)
+I200226 13:33:16.391364 723 sql/schema_changer.go:965  [n1,scExec] schema change on vehicles (56 v7) mutation 1 starting execution...
+I200226 13:33:17.364203 723 sql/schema_changer.go:965  [n1,scExec] schema change on rides (57 v11) mutation 2 starting execution...
+I200226 13:33:17.813795 723 sql/schema_changer.go:965  [n1,scExec] schema change on vehicle_location_histories (58 v5) mutation 1 starting execution...
+I200226 13:33:18.158627 723 sql/schema_changer.go:965  [n1,scExec] schema change on user_promo_codes (60 v5) mutation 1 starting execution...
+I200226 13:33:21.308223 705 server/status/runtime.go:498  [n1] runtime stats: 185 MiB RSS, 231 goroutines, 95 MiB/68 MiB/204 MiB GO alloc/idle/total, 21 MiB/31 MiB CGO alloc/total, 2705.7 CGO/sec, 69.2/30.0 %(u/s)time, 0.0 %gc (4x), 9.0 MiB/8.7 MiB (r/w)net
+I200226 13:33:31.318638 705 server/status/runtime.go:498  [n1] runtime stats: 188 MiB RSS, 231 goroutines, 129 MiB/51 MiB/204 MiB GO alloc/idle/total, 28 MiB/39 MiB CGO alloc/total, 2220.8 CGO/sec, 62.5/27.7 %(u/s)time, 0.0 %gc (3x), 8.0 MiB/7.8 MiB (r/w)net
+W200226 13:33:35.621004 608 storage/store_raft.go:514  [n1,s1,r29/1:/Table/5{8-9}] handle raft ready: 0.7s [applied=0, batches=0, state_assertions=0]
+I200226 13:33:41.307317 705 server/status/runtime.go:498  [n1] runtime stats: 174 MiB RSS, 232 goroutines, 119 MiB/58 MiB/204 MiB GO alloc/idle/total, 28 MiB/39 MiB CGO alloc/total, 1860.0 CGO/sec, 53.7/22.3 %(u/s)time, 0.0 %gc (3x), 6.7 MiB/6.4 MiB (r/w)net
+I200226 13:33:51.310812 705 server/status/runtime.go:498  [n1] runtime stats: 208 MiB RSS, 234 goroutines, 100 MiB/128 MiB/241 MiB GO alloc/idle/total, 28 MiB/39 MiB CGO alloc/total, 2088.7 CGO/sec, 61.8/25.5 %(u/s)time, 0.0 %gc (4x), 13 MiB/13 MiB (r/w)net
+I200226 13:34:01.273293 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 1372/649 sent/received, bytes 1382221B/1199618B sent/received)
+  2: localhost:26258 (2m59s)
+  3: localhost:26259 (2m58s)
+I200226 13:34:01.337888 705 server/status/runtime.go:498  [n1] runtime stats: 213 MiB RSS, 241 goroutines, 142 MiB/94 MiB/270 MiB GO alloc/idle/total, 28 MiB/39 MiB CGO alloc/total, 2045.4 CGO/sec, 64.9/24.5 %(u/s)time, 0.0 %gc (4x), 8.5 MiB/8.3 MiB (r/w)net
+I200226 13:34:11.316524 705 server/status/runtime.go:498  [n1] runtime stats: 217 MiB RSS, 237 goroutines, 112 MiB/121 MiB/270 MiB GO alloc/idle/total, 28 MiB/40 MiB CGO alloc/total, 1946.2 CGO/sec, 67.6/22.9 %(u/s)time, 0.0 %gc (5x), 8.8 MiB/8.6 MiB (r/w)net
+I200226 13:34:21.316049 705 server/status/runtime.go:498  [n1] runtime stats: 219 MiB RSS, 237 goroutines, 165 MiB/81 MiB/270 MiB GO alloc/idle/total, 28 MiB/40 MiB CGO alloc/total, 2372.8 CGO/sec, 63.8/28.2 %(u/s)time, 0.0 %gc (3x), 8.8 MiB/8.5 MiB (r/w)net
+I200226 13:34:31.335056 705 server/status/runtime.go:498  [n1] runtime stats: 219 MiB RSS, 237 goroutines, 100 MiB/127 MiB/270 MiB GO alloc/idle/total, 36 MiB/48 MiB CGO alloc/total, 1975.2 CGO/sec, 58.1/23.7 %(u/s)time, 0.0 %gc (4x), 7.6 MiB/7.3 MiB (r/w)net
+I200226 13:34:41.326984 705 server/status/runtime.go:498  [n1] runtime stats: 222 MiB RSS, 238 goroutines, 125 MiB/116 MiB/270 MiB GO alloc/idle/total, 36 MiB/48 MiB CGO alloc/total, 2004.5 CGO/sec, 58.7/23.6 %(u/s)time, 0.0 %gc (3x), 8.5 MiB/7.8 MiB (r/w)net
+I200226 13:34:45.207213 698 storage/store_rebalancer.go:232  [n1,s1,store-rebalancer] considering load-based lease transfers for s1 with 314.69 qps (mean=158.12, upperThreshold=258.12)
+I200226 13:34:45.210124 698 storage/store_rebalancer.go:267  [n1,s1,store-rebalancer] load-based lease transfers successfully brought s1 down to 103.50 qps (mean=158.12, upperThreshold=258.12)
+I200226 13:34:51.331932 705 server/status/runtime.go:498  [n1] runtime stats: 208 MiB RSS, 238 goroutines, 149 MiB/97 MiB/270 MiB GO alloc/idle/total, 36 MiB/48 MiB CGO alloc/total, 1360.6 CGO/sec, 54.8/22.5 %(u/s)time, 0.0 %gc (3x), 8.9 MiB/8.7 MiB (r/w)net
+I200226 13:35:01.273350 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 1747/820 sent/received, bytes 1435046B/1223805B sent/received)
+  2: localhost:26258 (3m59s)
+  3: localhost:26259 (3m58s)
+I200226 13:35:01.350265 705 server/status/runtime.go:498  [n1] runtime stats: 209 MiB RSS, 238 goroutines, 106 MiB/124 MiB/270 MiB GO alloc/idle/total, 36 MiB/48 MiB CGO alloc/total, 1216.8 CGO/sec, 57.9/26.2 %(u/s)time, 0.0 %gc (4x), 11 MiB/11 MiB (r/w)net
+I200226 13:35:11.417823 705 server/status/runtime.go:498  [n1] runtime stats: 212 MiB RSS, 237 goroutines, 148 MiB/98 MiB/270 MiB GO alloc/idle/total, 36 MiB/49 MiB CGO alloc/total, 1123.1 CGO/sec, 54.6/23.6 %(u/s)time, 0.0 %gc (3x), 11 MiB/11 MiB (r/w)net
+I200226 13:35:21.341239 705 server/status/runtime.go:498  [n1] runtime stats: 214 MiB RSS, 237 goroutines, 105 MiB/123 MiB/270 MiB GO alloc/idle/total, 36 MiB/49 MiB CGO alloc/total, 1307.6 CGO/sec, 58.1/26.3 %(u/s)time, 0.0 %gc (4x), 11 MiB/11 MiB (r/w)net
+I200226 13:35:31.351813 705 server/status/runtime.go:498  [n1] runtime stats: 216 MiB RSS, 237 goroutines, 130 MiB/112 MiB/270 MiB GO alloc/idle/total, 44 MiB/57 MiB CGO alloc/total, 1136.1 CGO/sec, 56.0/25.8 %(u/s)time, 0.0 %gc (3x), 11 MiB/11 MiB (r/w)net
+I200226 13:35:41.367105 705 server/status/runtime.go:498  [n1] runtime stats: 217 MiB RSS, 238 goroutines, 167 MiB/80 MiB/270 MiB GO alloc/idle/total, 44 MiB/57 MiB CGO alloc/total, 1143.9 CGO/sec, 57.8/26.6 %(u/s)time, 0.0 %gc (4x), 12 MiB/12 MiB (r/w)net
+I200226 13:35:51.351869 705 server/status/runtime.go:498  [n1] runtime stats: 219 MiB RSS, 238 goroutines, 122 MiB/115 MiB/270 MiB GO alloc/idle/total, 44 MiB/57 MiB CGO alloc/total, 1057.4 CGO/sec, 55.5/25.4 %(u/s)time, 0.0 %gc (3x), 12 MiB/12 MiB (r/w)net
+I200226 13:36:01.275675 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 2117/988 sent/received, bytes 1485963B/1247172B sent/received)
+  2: localhost:26258 (4m59s)
+  3: localhost:26259 (4m58s)
+I200226 13:36:01.351305 705 server/status/runtime.go:498  [n1] runtime stats: 221 MiB RSS, 238 goroutines, 141 MiB/103 MiB/270 MiB GO alloc/idle/total, 44 MiB/57 MiB CGO alloc/total, 1190.7 CGO/sec, 54.2/24.3 %(u/s)time, 0.0 %gc (3x), 11 MiB/11 MiB (r/w)net
+I200226 13:36:11.354217 705 server/status/runtime.go:498  [n1] runtime stats: 224 MiB RSS, 237 goroutines, 156 MiB/90 MiB/270 MiB GO alloc/idle/total, 44 MiB/58 MiB CGO alloc/total, 1032.3 CGO/sec, 52.5/21.7 %(u/s)time, 0.0 %gc (3x), 11 MiB/10 MiB (r/w)net
+I200226 13:36:21.364717 705 server/status/runtime.go:498  [n1] runtime stats: 226 MiB RSS, 237 goroutines, 130 MiB/111 MiB/270 MiB GO alloc/idle/total, 44 MiB/58 MiB CGO alloc/total, 1366.3 CGO/sec, 59.5/27.1 %(u/s)time, 0.0 %gc (4x), 13 MiB/13 MiB (r/w)net
+I200226 13:36:31.365516 705 server/status/runtime.go:498  [n1] runtime stats: 227 MiB RSS, 237 goroutines, 118 MiB/117 MiB/270 MiB GO alloc/idle/total, 52 MiB/66 MiB CGO alloc/total, 1043.5 CGO/sec, 51.2/21.7 %(u/s)time, 0.0 %gc (3x), 11 MiB/10 MiB (r/w)net
+I200226 13:36:41.364986 705 server/status/runtime.go:498  [n1] runtime stats: 229 MiB RSS, 238 goroutines, 120 MiB/116 MiB/270 MiB GO alloc/idle/total, 52 MiB/66 MiB CGO alloc/total, 1112.3 CGO/sec, 52.4/23.1 %(u/s)time, 0.0 %gc (3x), 11 MiB/11 MiB (r/w)net
+I200226 13:36:51.368060 705 server/status/runtime.go:498  [n1] runtime stats: 230 MiB RSS, 238 goroutines, 161 MiB/85 MiB/270 MiB GO alloc/idle/total, 52 MiB/66 MiB CGO alloc/total, 1218.8 CGO/sec, 56.9/26.6 %(u/s)time, 0.0 %gc (3x), 13 MiB/13 MiB (r/w)net
+I200226 13:37:01.277170 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 2482/1157 sent/received, bytes 1536079B/1270488B sent/received)
+  2: localhost:26258 (5m59s)
+  3: localhost:26259 (5m58s)
+I200226 13:37:01.377999 705 server/status/runtime.go:498  [n1] runtime stats: 231 MiB RSS, 236 goroutines, 148 MiB/97 MiB/270 MiB GO alloc/idle/total, 52 MiB/66 MiB CGO alloc/total, 303.1 CGO/sec, 14.2/7.1 %(u/s)time, 0.0 %gc (1x), 3.2 MiB/3.0 MiB (r/w)net
+I200226 13:37:11.373687 705 server/status/runtime.go:498  [n1] runtime stats: 233 MiB RSS, 235 goroutines, 111 MiB/111 MiB/270 MiB GO alloc/idle/total, 52 MiB/67 MiB CGO alloc/total, 48.1 CGO/sec, 4.6/1.8 %(u/s)time, 0.0 %gc (1x), 956 KiB/553 KiB (r/w)net
+I200226 13:37:21.375199 705 server/status/runtime.go:498  [n1] runtime stats: 234 MiB RSS, 235 goroutines, 121 MiB/103 MiB/270 MiB GO alloc/idle/total, 52 MiB/67 MiB CGO alloc/total, 44.0 CGO/sec, 1.9/1.2 %(u/s)time, 0.0 %gc (0x), 553 KiB/303 KiB (r/w)net
+I200226 13:37:31.379703 705 server/status/runtime.go:498  [n1] runtime stats: 235 MiB RSS, 235 goroutines, 130 MiB/95 MiB/270 MiB GO alloc/idle/total, 52 MiB/67 MiB CGO alloc/total, 34.9 CGO/sec, 1.8/1.2 %(u/s)time, 0.0 %gc (0x), 516 KiB/288 KiB (r/w)net
+I200226 13:37:41.389126 705 server/status/runtime.go:498  [n1] runtime stats: 236 MiB RSS, 236 goroutines, 140 MiB/87 MiB/270 MiB GO alloc/idle/total, 52 MiB/67 MiB CGO alloc/total, 34.0 CGO/sec, 1.7/1.1 %(u/s)time, 0.0 %gc (0x), 600 KiB/302 KiB (r/w)net
+I200226 13:37:51.392506 705 server/status/runtime.go:498  [n1] runtime stats: 238 MiB RSS, 236 goroutines, 149 MiB/80 MiB/270 MiB GO alloc/idle/total, 60 MiB/75 MiB CGO alloc/total, 34.7 CGO/sec, 1.5/1.3 %(u/s)time, 0.0 %gc (0x), 527 KiB/277 KiB (r/w)net
+I200226 13:38:01.279300 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 2849/1326 sent/received, bytes 1586544B/1294053B sent/received)
+  2: localhost:26258 (6m59s)
+  3: localhost:26259 (6m58s)
+I200226 13:38:01.384262 705 server/status/runtime.go:498  [n1] runtime stats: 243 MiB RSS, 236 goroutines, 160 MiB/71 MiB/270 MiB GO alloc/idle/total, 60 MiB/75 MiB CGO alloc/total, 41.2 CGO/sec, 2.0/1.5 %(u/s)time, 0.0 %gc (0x), 611 KiB/377 KiB (r/w)net
+I200226 13:38:11.394489 705 server/status/runtime.go:498  [n1] runtime stats: 250 MiB RSS, 235 goroutines, 170 MiB/63 MiB/270 MiB GO alloc/idle/total, 60 MiB/75 MiB CGO alloc/total, 41.3 CGO/sec, 1.8/1.4 %(u/s)time, 0.0 %gc (0x), 593 KiB/346 KiB (r/w)net
+I200226 13:38:21.394007 705 server/status/runtime.go:498  [n1] runtime stats: 257 MiB RSS, 235 goroutines, 94 MiB/126 MiB/270 MiB GO alloc/idle/total, 60 MiB/75 MiB CGO alloc/total, 36.2 CGO/sec, 2.4/1.3 %(u/s)time, 0.0 %gc (1x), 508 KiB/282 KiB (r/w)net
+I200226 13:38:31.402040 705 server/status/runtime.go:498  [n1] runtime stats: 258 MiB RSS, 235 goroutines, 104 MiB/118 MiB/270 MiB GO alloc/idle/total, 60 MiB/75 MiB CGO alloc/total, 40.7 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 573 KiB/306 KiB (r/w)net
+I200226 13:38:41.408045 705 server/status/runtime.go:498  [n1] runtime stats: 259 MiB RSS, 236 goroutines, 113 MiB/110 MiB/270 MiB GO alloc/idle/total, 60 MiB/75 MiB CGO alloc/total, 34.8 CGO/sec, 1.5/1.1 %(u/s)time, 0.0 %gc (0x), 537 KiB/300 KiB (r/w)net
+I200226 13:38:51.405628 705 server/status/runtime.go:498  [n1] runtime stats: 259 MiB RSS, 236 goroutines, 122 MiB/102 MiB/270 MiB GO alloc/idle/total, 60 MiB/75 MiB CGO alloc/total, 38.4 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 540 KiB/289 KiB (r/w)net
+I200226 13:39:01.281382 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 3212/1493 sent/received, bytes 1636781B/1317696B sent/received)
+  2: localhost:26258 (7m59s)
+  3: localhost:26259 (7m58s)
+I200226 13:39:01.406474 705 server/status/runtime.go:498  [n1] runtime stats: 260 MiB RSS, 236 goroutines, 131 MiB/94 MiB/270 MiB GO alloc/idle/total, 60 MiB/75 MiB CGO alloc/total, 35.2 CGO/sec, 1.5/1.2 %(u/s)time, 0.0 %gc (0x), 536 KiB/291 KiB (r/w)net
+I200226 13:39:11.409475 705 server/status/runtime.go:498  [n1] runtime stats: 261 MiB RSS, 235 goroutines, 141 MiB/87 MiB/270 MiB GO alloc/idle/total, 60 MiB/75 MiB CGO alloc/total, 39.4 CGO/sec, 1.7/1.3 %(u/s)time, 0.0 %gc (0x), 560 KiB/322 KiB (r/w)net
+I200226 13:39:21.414024 705 server/status/runtime.go:498  [n1] runtime stats: 261 MiB RSS, 235 goroutines, 150 MiB/79 MiB/270 MiB GO alloc/idle/total, 60 MiB/75 MiB CGO alloc/total, 35.6 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 518 KiB/280 KiB (r/w)net
+I200226 13:39:31.422867 705 server/status/runtime.go:498  [n1] runtime stats: 262 MiB RSS, 235 goroutines, 159 MiB/71 MiB/270 MiB GO alloc/idle/total, 60 MiB/75 MiB CGO alloc/total, 36.0 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 533 KiB/297 KiB (r/w)net
+I200226 13:39:41.425853 705 server/status/runtime.go:498  [n1] runtime stats: 263 MiB RSS, 236 goroutines, 168 MiB/63 MiB/270 MiB GO alloc/idle/total, 60 MiB/75 MiB CGO alloc/total, 39.0 CGO/sec, 1.6/1.3 %(u/s)time, 0.0 %gc (0x), 944 KiB/334 KiB (r/w)net
+I200226 13:39:51.419546 705 server/status/runtime.go:498  [n1] runtime stats: 264 MiB RSS, 236 goroutines, 93 MiB/127 MiB/270 MiB GO alloc/idle/total, 68 MiB/83 MiB CGO alloc/total, 33.3 CGO/sec, 2.0/1.2 %(u/s)time, 0.0 %gc (1x), 505 KiB/277 KiB (r/w)net
+I200226 13:40:01.283110 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 3576/1663 sent/received, bytes 1687131B/1341594B sent/received)
+  2: localhost:26258 (8m59s)
+  3: localhost:26259 (8m58s)
+I200226 13:40:01.424401 705 server/status/runtime.go:498  [n1] runtime stats: 264 MiB RSS, 236 goroutines, 103 MiB/118 MiB/270 MiB GO alloc/idle/total, 68 MiB/83 MiB CGO alloc/total, 39.6 CGO/sec, 1.6/1.3 %(u/s)time, 0.0 %gc (0x), 540 KiB/300 KiB (r/w)net
+I200226 13:40:11.435611 705 server/status/runtime.go:498  [n1] runtime stats: 257 MiB RSS, 230 goroutines, 113 MiB/110 MiB/270 MiB GO alloc/idle/total, 68 MiB/83 MiB CGO alloc/total, 37.6 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 569 KiB/330 KiB (r/w)net
+I200226 13:40:21.430921 705 server/status/runtime.go:498  [n1] runtime stats: 242 MiB RSS, 230 goroutines, 122 MiB/103 MiB/270 MiB GO alloc/idle/total, 68 MiB/83 MiB CGO alloc/total, 37.8 CGO/sec, 1.6/1.4 %(u/s)time, 0.0 %gc (0x), 520 KiB/289 KiB (r/w)net
+I200226 13:40:31.434995 705 server/status/runtime.go:498  [n1] runtime stats: 231 MiB RSS, 230 goroutines, 131 MiB/95 MiB/270 MiB GO alloc/idle/total, 68 MiB/83 MiB CGO alloc/total, 35.8 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 546 KiB/297 KiB (r/w)net
+I200226 13:40:41.440157 705 server/status/runtime.go:498  [n1] runtime stats: 234 MiB RSS, 231 goroutines, 142 MiB/87 MiB/270 MiB GO alloc/idle/total, 68 MiB/83 MiB CGO alloc/total, 41.8 CGO/sec, 2.2/1.4 %(u/s)time, 0.0 %gc (0x), 673 KiB/391 KiB (r/w)net
+I200226 13:40:51.443692 705 server/status/runtime.go:498  [n1] runtime stats: 235 MiB RSS, 231 goroutines, 152 MiB/79 MiB/270 MiB GO alloc/idle/total, 68 MiB/83 MiB CGO alloc/total, 39.0 CGO/sec, 1.7/1.3 %(u/s)time, 0.0 %gc (0x), 548 KiB/292 KiB (r/w)net
+I200226 13:41:01.285344 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 3941/1832 sent/received, bytes 1737660B/1365503B sent/received)
+  2: localhost:26258 (9m59s)
+  3: localhost:26259 (9m58s)
+I200226 13:41:01.450954 705 server/status/runtime.go:498  [n1] runtime stats: 230 MiB RSS, 231 goroutines, 161 MiB/71 MiB/270 MiB GO alloc/idle/total, 68 MiB/83 MiB CGO alloc/total, 37.2 CGO/sec, 1.7/1.3 %(u/s)time, 0.0 %gc (0x), 522 KiB/289 KiB (r/w)net
+I200226 13:41:11.465227 705 server/status/runtime.go:498  [n1] runtime stats: 228 MiB RSS, 230 goroutines, 170 MiB/63 MiB/270 MiB GO alloc/idle/total, 68 MiB/83 MiB CGO alloc/total, 37.7 CGO/sec, 1.6/1.3 %(u/s)time, 0.0 %gc (0x), 597 KiB/327 KiB (r/w)net
+I200226 13:41:21.287751 700 storage/store.go:2364  [n1,s1] sstables (read amplification = 0):
+I200226 13:41:21.287975 700 storage/store.go:2365  [n1,s1] 
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Sum      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      0.0      0.00              0.00         0    0.000       0      0
+
+** Compaction Stats [default] **
+Priority    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Uptime(secs): 663.8 total, 600.0 interval
+Flush(GB): cumulative 0.000, interval 0.000
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.0 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+estimated_pending_compaction_bytes: 0 B
+I200226 13:41:21.464842 705 server/status/runtime.go:498  [n1] runtime stats: 224 MiB RSS, 229 goroutines, 103 MiB/119 MiB/270 MiB GO alloc/idle/total, 78 MiB/94 MiB CGO alloc/total, 36.4 CGO/sec, 3.1/1.8 %(u/s)time, 0.0 %gc (1x), 526 KiB/290 KiB (r/w)net
+I200226 13:41:31.471911 705 server/status/runtime.go:498  [n1] runtime stats: 174 MiB RSS, 229 goroutines, 112 MiB/111 MiB/270 MiB GO alloc/idle/total, 14 MiB/26 MiB CGO alloc/total, 37.1 CGO/sec, 5.4/1.5 %(u/s)time, 0.0 %gc (0x), 532 KiB/299 KiB (r/w)net
+I200226 13:41:41.481989 705 server/status/runtime.go:498  [n1] runtime stats: 176 MiB RSS, 230 goroutines, 121 MiB/104 MiB/270 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 35.8 CGO/sec, 1.6/1.3 %(u/s)time, 0.0 %gc (0x), 624 KiB/382 KiB (r/w)net
+I200226 13:41:51.490734 705 server/status/runtime.go:498  [n1] runtime stats: 182 MiB RSS, 230 goroutines, 130 MiB/96 MiB/270 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 37.6 CGO/sec, 1.6/1.3 %(u/s)time, 0.0 %gc (0x), 615 KiB/311 KiB (r/w)net
+I200226 13:42:01.290705 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 4304/1999 sent/received, bytes 1787647B/1388802B sent/received)
+  2: localhost:26258 (10m59s)
+  3: localhost:26259 (10m58s)
+I200226 13:42:01.503267 705 server/status/runtime.go:498  [n1] runtime stats: 188 MiB RSS, 230 goroutines, 140 MiB/88 MiB/270 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 39.0 CGO/sec, 1.6/1.3 %(u/s)time, 0.0 %gc (0x), 558 KiB/321 KiB (r/w)net
+I200226 13:42:11.499767 705 server/status/runtime.go:498  [n1] runtime stats: 193 MiB RSS, 229 goroutines, 149 MiB/80 MiB/270 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 39.3 CGO/sec, 1.6/1.4 %(u/s)time, 0.0 %gc (0x), 572 KiB/332 KiB (r/w)net
+I200226 13:42:21.506608 705 server/status/runtime.go:498  [n1] runtime stats: 196 MiB RSS, 229 goroutines, 158 MiB/72 MiB/270 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 35.1 CGO/sec, 1.5/1.2 %(u/s)time, 0.0 %gc (0x), 542 KiB/298 KiB (r/w)net
+I200226 13:42:31.510185 705 server/status/runtime.go:498  [n1] runtime stats: 197 MiB RSS, 229 goroutines, 168 MiB/64 MiB/270 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 35.2 CGO/sec, 1.6/1.3 %(u/s)time, 0.0 %gc (0x), 544 KiB/310 KiB (r/w)net
+I200226 13:42:41.511512 705 server/status/runtime.go:498  [n1] runtime stats: 201 MiB RSS, 230 goroutines, 93 MiB/127 MiB/270 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 33.9 CGO/sec, 2.2/1.3 %(u/s)time, 0.0 %gc (1x), 549 KiB/319 KiB (r/w)net
+I200226 13:42:51.516706 705 server/status/runtime.go:498  [n1] runtime stats: 202 MiB RSS, 230 goroutines, 103 MiB/119 MiB/269 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 35.9 CGO/sec, 1.5/1.1 %(u/s)time, 0.0 %gc (0x), 542 KiB/295 KiB (r/w)net
+I200226 13:43:01.293952 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 4668/2169 sent/received, bytes 1837947B/1412614B sent/received)
+  2: localhost:26258 (11m59s)
+  3: localhost:26259 (11m58s)
+I200226 13:43:01.521125 705 server/status/runtime.go:498  [n1] runtime stats: 202 MiB RSS, 230 goroutines, 112 MiB/111 MiB/269 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 35.7 CGO/sec, 1.6/1.3 %(u/s)time, 0.0 %gc (0x), 536 KiB/298 KiB (r/w)net
+I200226 13:43:11.524189 705 server/status/runtime.go:498  [n1] runtime stats: 204 MiB RSS, 229 goroutines, 124 MiB/103 MiB/269 MiB GO alloc/idle/total, 14 MiB/27 MiB CGO alloc/total, 50.3 CGO/sec, 2.4/1.6 %(u/s)time, 0.0 %gc (0x), 688 KiB/446 KiB (r/w)net
+I200226 13:43:21.525929 705 server/status/runtime.go:498  [n1] runtime stats: 204 MiB RSS, 229 goroutines, 133 MiB/95 MiB/269 MiB GO alloc/idle/total, 22 MiB/35 MiB CGO alloc/total, 37.5 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 535 KiB/302 KiB (r/w)net
+I200226 13:43:31.528859 705 server/status/runtime.go:498  [n1] runtime stats: 205 MiB RSS, 229 goroutines, 142 MiB/88 MiB/269 MiB GO alloc/idle/total, 22 MiB/35 MiB CGO alloc/total, 35.6 CGO/sec, 1.5/1.2 %(u/s)time, 0.0 %gc (0x), 536 KiB/298 KiB (r/w)net
+I200226 13:43:41.536495 705 server/status/runtime.go:498  [n1] runtime stats: 206 MiB RSS, 230 goroutines, 151 MiB/80 MiB/269 MiB GO alloc/idle/total, 22 MiB/35 MiB CGO alloc/total, 31.0 CGO/sec, 1.5/1.2 %(u/s)time, 0.0 %gc (0x), 645 KiB/342 KiB (r/w)net
+I200226 13:43:51.545023 705 server/status/runtime.go:498  [n1] runtime stats: 207 MiB RSS, 230 goroutines, 160 MiB/72 MiB/269 MiB GO alloc/idle/total, 22 MiB/35 MiB CGO alloc/total, 37.6 CGO/sec, 1.5/1.2 %(u/s)time, 0.0 %gc (0x), 540 KiB/303 KiB (r/w)net
+I200226 13:44:01.296883 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 5032/2337 sent/received, bytes 1888106B/1436027B sent/received)
+  2: localhost:26258 (12m59s)
+  3: localhost:26259 (12m58s)
+I200226 13:44:01.558764 705 server/status/runtime.go:498  [n1] runtime stats: 208 MiB RSS, 230 goroutines, 170 MiB/64 MiB/269 MiB GO alloc/idle/total, 22 MiB/35 MiB CGO alloc/total, 38.7 CGO/sec, 1.6/1.3 %(u/s)time, 0.0 %gc (0x), 542 KiB/305 KiB (r/w)net
+I200226 13:44:11.562755 705 server/status/runtime.go:498  [n1] runtime stats: 211 MiB RSS, 229 goroutines, 92 MiB/128 MiB/269 MiB GO alloc/idle/total, 22 MiB/35 MiB CGO alloc/total, 37.0 CGO/sec, 2.2/1.5 %(u/s)time, 0.0 %gc (1x), 575 KiB/339 KiB (r/w)net
+I200226 13:44:21.569020 705 server/status/runtime.go:498  [n1] runtime stats: 212 MiB RSS, 229 goroutines, 102 MiB/120 MiB/269 MiB GO alloc/idle/total, 22 MiB/35 MiB CGO alloc/total, 34.3 CGO/sec, 1.5/1.2 %(u/s)time, 0.0 %gc (0x), 535 KiB/297 KiB (r/w)net
+I200226 13:44:31.577865 705 server/status/runtime.go:498  [n1] runtime stats: 212 MiB RSS, 229 goroutines, 111 MiB/112 MiB/269 MiB GO alloc/idle/total, 22 MiB/35 MiB CGO alloc/total, 35.9 CGO/sec, 1.5/1.2 %(u/s)time, 0.0 %gc (0x), 536 KiB/299 KiB (r/w)net
+I200226 13:44:41.585686 705 server/status/runtime.go:498  [n1] runtime stats: 213 MiB RSS, 230 goroutines, 120 MiB/104 MiB/269 MiB GO alloc/idle/total, 22 MiB/35 MiB CGO alloc/total, 39.5 CGO/sec, 1.6/1.3 %(u/s)time, 0.0 %gc (0x), 976 KiB/368 KiB (r/w)net
+I200226 13:44:51.598200 705 server/status/runtime.go:498  [n1] runtime stats: 214 MiB RSS, 230 goroutines, 130 MiB/96 MiB/269 MiB GO alloc/idle/total, 22 MiB/35 MiB CGO alloc/total, 34.8 CGO/sec, 1.5/1.2 %(u/s)time, 0.0 %gc (0x), 546 KiB/304 KiB (r/w)net
+I200226 13:45:01.298283 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 5395/2504 sent/received, bytes 1938193B/1459326B sent/received)
+  2: localhost:26258 (13m59s)
+  3: localhost:26259 (13m58s)
+I200226 13:45:01.602201 705 server/status/runtime.go:498  [n1] runtime stats: 215 MiB RSS, 230 goroutines, 139 MiB/89 MiB/269 MiB GO alloc/idle/total, 22 MiB/35 MiB CGO alloc/total, 35.1 CGO/sec, 1.6/1.3 %(u/s)time, 0.0 %gc (0x), 541 KiB/300 KiB (r/w)net
+I200226 13:45:11.611782 705 server/status/runtime.go:498  [n1] runtime stats: 215 MiB RSS, 229 goroutines, 148 MiB/81 MiB/269 MiB GO alloc/idle/total, 22 MiB/35 MiB CGO alloc/total, 41.7 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 592 KiB/350 KiB (r/w)net
+I200226 13:45:21.618333 705 server/status/runtime.go:498  [n1] runtime stats: 216 MiB RSS, 229 goroutines, 157 MiB/73 MiB/266 MiB GO alloc/idle/total, 30 MiB/43 MiB CGO alloc/total, 36.1 CGO/sec, 1.6/1.3 %(u/s)time, 0.0 %gc (0x), 536 KiB/306 KiB (r/w)net
+I200226 13:45:31.620392 705 server/status/runtime.go:498  [n1] runtime stats: 217 MiB RSS, 229 goroutines, 167 MiB/65 MiB/266 MiB GO alloc/idle/total, 30 MiB/43 MiB CGO alloc/total, 39.4 CGO/sec, 1.7/1.3 %(u/s)time, 0.0 %gc (0x), 561 KiB/316 KiB (r/w)net
+I200226 13:45:41.628712 705 server/status/runtime.go:498  [n1] runtime stats: 218 MiB RSS, 230 goroutines, 94 MiB/126 MiB/266 MiB GO alloc/idle/total, 30 MiB/43 MiB CGO alloc/total, 42.5 CGO/sec, 2.7/1.4 %(u/s)time, 0.0 %gc (1x), 652 KiB/414 KiB (r/w)net
+I200226 13:45:51.634663 705 server/status/runtime.go:498  [n1] runtime stats: 218 MiB RSS, 230 goroutines, 104 MiB/118 MiB/266 MiB GO alloc/idle/total, 30 MiB/43 MiB CGO alloc/total, 36.8 CGO/sec, 1.5/1.1 %(u/s)time, 0.0 %gc (0x), 536 KiB/296 KiB (r/w)net
+I200226 13:46:01.300259 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 5757/2674 sent/received, bytes 1988163B/1483052B sent/received)
+  3: localhost:26259 (14m58s)
+  2: localhost:26258 (14m59s)
+I200226 13:46:01.635901 705 server/status/runtime.go:498  [n1] runtime stats: 219 MiB RSS, 230 goroutines, 113 MiB/110 MiB/266 MiB GO alloc/idle/total, 30 MiB/43 MiB CGO alloc/total, 38.7 CGO/sec, 1.7/1.3 %(u/s)time, 0.0 %gc (0x), 544 KiB/310 KiB (r/w)net
+I200226 13:46:11.644598 705 server/status/runtime.go:498  [n1] runtime stats: 220 MiB RSS, 229 goroutines, 123 MiB/102 MiB/266 MiB GO alloc/idle/total, 30 MiB/43 MiB CGO alloc/total, 39.7 CGO/sec, 1.7/1.3 %(u/s)time, 0.0 %gc (0x), 588 KiB/346 KiB (r/w)net
+I200226 13:46:21.644761 705 server/status/runtime.go:498  [n1] runtime stats: 220 MiB RSS, 229 goroutines, 132 MiB/94 MiB/266 MiB GO alloc/idle/total, 30 MiB/43 MiB CGO alloc/total, 38.2 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 539 KiB/305 KiB (r/w)net
+I200226 13:46:31.655073 705 server/status/runtime.go:498  [n1] runtime stats: 221 MiB RSS, 229 goroutines, 141 MiB/87 MiB/266 MiB GO alloc/idle/total, 30 MiB/43 MiB CGO alloc/total, 34.8 CGO/sec, 1.5/1.2 %(u/s)time, 0.0 %gc (0x), 545 KiB/304 KiB (r/w)net
+I200226 13:46:41.665047 705 server/status/runtime.go:498  [n1] runtime stats: 222 MiB RSS, 230 goroutines, 150 MiB/79 MiB/266 MiB GO alloc/idle/total, 30 MiB/43 MiB CGO alloc/total, 37.0 CGO/sec, 1.7/1.3 %(u/s)time, 0.0 %gc (0x), 615 KiB/317 KiB (r/w)net
+I200226 13:46:51.675451 705 server/status/runtime.go:498  [n1] runtime stats: 223 MiB RSS, 230 goroutines, 160 MiB/71 MiB/266 MiB GO alloc/idle/total, 30 MiB/43 MiB CGO alloc/total, 37.2 CGO/sec, 1.5/1.2 %(u/s)time, 0.0 %gc (0x), 522 KiB/279 KiB (r/w)net
+I200226 13:47:01.301278 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 6122/2843 sent/received, bytes 2038642B/1506789B sent/received)
+  2: localhost:26258 (15m59s)
+  3: localhost:26259 (15m58s)
+I200226 13:47:01.676022 705 server/status/runtime.go:498  [n1] runtime stats: 223 MiB RSS, 230 goroutines, 169 MiB/63 MiB/266 MiB GO alloc/idle/total, 30 MiB/43 MiB CGO alloc/total, 39.8 CGO/sec, 1.7/1.3 %(u/s)time, 0.0 %gc (0x), 537 KiB/300 KiB (r/w)net
+I200226 13:47:11.677438 705 server/status/runtime.go:498  [n1] runtime stats: 224 MiB RSS, 229 goroutines, 94 MiB/126 MiB/266 MiB GO alloc/idle/total, 30 MiB/43 MiB CGO alloc/total, 36.7 CGO/sec, 2.2/1.3 %(u/s)time, 0.0 %gc (1x), 556 KiB/318 KiB (r/w)net
+I200226 13:47:21.680939 705 server/status/runtime.go:498  [n1] runtime stats: 225 MiB RSS, 229 goroutines, 104 MiB/118 MiB/266 MiB GO alloc/idle/total, 38 MiB/51 MiB CGO alloc/total, 33.8 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 512 KiB/275 KiB (r/w)net
+I200226 13:47:31.688280 705 server/status/runtime.go:498  [n1] runtime stats: 226 MiB RSS, 229 goroutines, 113 MiB/110 MiB/266 MiB GO alloc/idle/total, 38 MiB/51 MiB CGO alloc/total, 35.9 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 515 KiB/282 KiB (r/w)net
+I200226 13:47:41.696893 705 server/status/runtime.go:498  [n1] runtime stats: 226 MiB RSS, 230 goroutines, 123 MiB/102 MiB/266 MiB GO alloc/idle/total, 38 MiB/51 MiB CGO alloc/total, 36.5 CGO/sec, 1.7/1.3 %(u/s)time, 0.0 %gc (0x), 543 KiB/304 KiB (r/w)net
+I200226 13:47:51.709097 705 server/status/runtime.go:498  [n1] runtime stats: 227 MiB RSS, 230 goroutines, 132 MiB/95 MiB/266 MiB GO alloc/idle/total, 38 MiB/51 MiB CGO alloc/total, 35.7 CGO/sec, 1.5/1.1 %(u/s)time, 0.0 %gc (0x), 518 KiB/281 KiB (r/w)net
+I200226 13:48:01.303056 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 6485/3010 sent/received, bytes 2088879B/1530346B sent/received)
+  2: localhost:26258 (16m59s)
+  3: localhost:26259 (16m58s)
+I200226 13:48:01.719643 705 server/status/runtime.go:498  [n1] runtime stats: 228 MiB RSS, 230 goroutines, 141 MiB/87 MiB/266 MiB GO alloc/idle/total, 38 MiB/51 MiB CGO alloc/total, 36.0 CGO/sec, 1.5/1.3 %(u/s)time, 0.0 %gc (0x), 597 KiB/294 KiB (r/w)net
+I200226 13:48:11.717454 705 server/status/runtime.go:498  [n1] runtime stats: 228 MiB RSS, 229 goroutines, 150 MiB/79 MiB/266 MiB GO alloc/idle/total, 38 MiB/51 MiB CGO alloc/total, 40.7 CGO/sec, 1.7/1.5 %(u/s)time, 0.0 %gc (0x), 569 KiB/333 KiB (r/w)net
+I200226 13:48:21.865231 705 server/status/runtime.go:498  [n1] runtime stats: 218 MiB RSS, 229 goroutines, 162 MiB/71 MiB/266 MiB GO alloc/idle/total, 38 MiB/51 MiB CGO alloc/total, 41.8 CGO/sec, 2.2/1.4 %(u/s)time, 0.0 %gc (0x), 621 KiB/377 KiB (r/w)net
+I200226 13:48:31.725649 705 server/status/runtime.go:498  [n1] runtime stats: 210 MiB RSS, 229 goroutines, 171 MiB/63 MiB/266 MiB GO alloc/idle/total, 38 MiB/51 MiB CGO alloc/total, 40.5 CGO/sec, 1.5/1.3 %(u/s)time, 0.0 %gc (0x), 911 KiB/330 KiB (r/w)net
+I200226 13:48:41.720332 705 server/status/runtime.go:498  [n1] runtime stats: 211 MiB RSS, 230 goroutines, 98 MiB/123 MiB/266 MiB GO alloc/idle/total, 38 MiB/51 MiB CGO alloc/total, 32.2 CGO/sec, 2.6/1.5 %(u/s)time, 0.0 %gc (1x), 673 KiB/332 KiB (r/w)net
+I200226 13:48:51.726927 705 server/status/runtime.go:498  [n1] runtime stats: 212 MiB RSS, 230 goroutines, 107 MiB/116 MiB/266 MiB GO alloc/idle/total, 38 MiB/51 MiB CGO alloc/total, 32.7 CGO/sec, 1.4/1.1 %(u/s)time, 0.0 %gc (0x), 665 KiB/313 KiB (r/w)net
+I200226 13:49:01.307970 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 6849/3180 sent/received, bytes 2139129B/1554158B sent/received)
+  2: localhost:26258 (17m59s)
+  3: localhost:26259 (17m58s)
+I200226 13:49:01.725809 705 server/status/runtime.go:498  [n1] runtime stats: 213 MiB RSS, 230 goroutines, 116 MiB/108 MiB/266 MiB GO alloc/idle/total, 38 MiB/51 MiB CGO alloc/total, 37.0 CGO/sec, 1.4/1.1 %(u/s)time, 0.0 %gc (0x), 1.8 MiB/431 KiB (r/w)net
+I200226 13:49:11.726078 705 server/status/runtime.go:498  [n1] runtime stats: 213 MiB RSS, 229 goroutines, 126 MiB/100 MiB/266 MiB GO alloc/idle/total, 38 MiB/51 MiB CGO alloc/total, 43.8 CGO/sec, 1.7/1.3 %(u/s)time, 0.0 %gc (0x), 617 KiB/342 KiB (r/w)net
+I200226 13:49:21.729841 705 server/status/runtime.go:498  [n1] runtime stats: 214 MiB RSS, 229 goroutines, 135 MiB/92 MiB/266 MiB GO alloc/idle/total, 46 MiB/59 MiB CGO alloc/total, 38.0 CGO/sec, 1.5/1.0 %(u/s)time, 0.0 %gc (0x), 3.4 MiB/473 KiB (r/w)net
+I200226 13:49:31.735321 705 server/status/runtime.go:498  [n1] runtime stats: 215 MiB RSS, 229 goroutines, 144 MiB/85 MiB/266 MiB GO alloc/idle/total, 46 MiB/59 MiB CGO alloc/total, 35.3 CGO/sec, 1.3/1.0 %(u/s)time, 0.0 %gc (0x), 2.3 MiB/415 KiB (r/w)net
+I200226 13:49:41.749507 705 server/status/runtime.go:498  [n1] runtime stats: 216 MiB RSS, 230 goroutines, 154 MiB/77 MiB/266 MiB GO alloc/idle/total, 46 MiB/59 MiB CGO alloc/total, 33.9 CGO/sec, 1.5/1.1 %(u/s)time, 0.0 %gc (0x), 1.2 MiB/386 KiB (r/w)net
+I200226 13:49:51.745376 705 server/status/runtime.go:498  [n1] runtime stats: 215 MiB RSS, 230 goroutines, 163 MiB/69 MiB/266 MiB GO alloc/idle/total, 46 MiB/59 MiB CGO alloc/total, 36.4 CGO/sec, 1.5/1.1 %(u/s)time, 0.0 %gc (0x), 657 KiB/312 KiB (r/w)net
+I200226 13:50:01.306954 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 7214/3349 sent/received, bytes 2189508B/1577723B sent/received)
+  2: localhost:26258 (18m59s)
+  3: localhost:26259 (18m58s)
+I200226 13:50:01.738273 705 server/status/runtime.go:498  [n1] runtime stats: 216 MiB RSS, 230 goroutines, 91 MiB/129 MiB/266 MiB GO alloc/idle/total, 46 MiB/59 MiB CGO alloc/total, 40.1 CGO/sec, 2.1/1.4 %(u/s)time, 0.0 %gc (1x), 528 KiB/285 KiB (r/w)net
+I200226 13:50:11.740456 705 server/status/runtime.go:498  [n1] runtime stats: 214 MiB RSS, 229 goroutines, 101 MiB/121 MiB/266 MiB GO alloc/idle/total, 46 MiB/59 MiB CGO alloc/total, 35.0 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 706 KiB/348 KiB (r/w)net
+I200226 13:50:21.746740 705 server/status/runtime.go:498  [n1] runtime stats: 215 MiB RSS, 229 goroutines, 110 MiB/113 MiB/265 MiB GO alloc/idle/total, 46 MiB/59 MiB CGO alloc/total, 35.4 CGO/sec, 1.5/1.1 %(u/s)time, 0.0 %gc (0x), 638 KiB/289 KiB (r/w)net
+I200226 13:50:31.757585 705 server/status/runtime.go:498  [n1] runtime stats: 213 MiB RSS, 229 goroutines, 119 MiB/105 MiB/265 MiB GO alloc/idle/total, 46 MiB/59 MiB CGO alloc/total, 38.4 CGO/sec, 1.4/1.1 %(u/s)time, 0.0 %gc (0x), 573 KiB/323 KiB (r/w)net
+I200226 13:50:41.759077 705 server/status/runtime.go:498  [n1] runtime stats: 214 MiB RSS, 230 goroutines, 129 MiB/98 MiB/265 MiB GO alloc/idle/total, 46 MiB/59 MiB CGO alloc/total, 41.1 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 582 KiB/368 KiB (r/w)net
+I200226 13:50:51.759939 705 server/status/runtime.go:498  [n1] runtime stats: 212 MiB RSS, 230 goroutines, 140 MiB/90 MiB/265 MiB GO alloc/idle/total, 46 MiB/59 MiB CGO alloc/total, 40.4 CGO/sec, 2.0/1.2 %(u/s)time, 0.0 %gc (0x), 1.2 MiB/468 KiB (r/w)net
+I200226 13:51:01.308392 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 7577/3516 sent/received, bytes 2239645B/1601108B sent/received)
+  2: localhost:26258 (19m59s)
+  3: localhost:26259 (19m58s)
+I200226 13:51:01.765476 705 server/status/runtime.go:498  [n1] runtime stats: 210 MiB RSS, 230 goroutines, 150 MiB/82 MiB/265 MiB GO alloc/idle/total, 46 MiB/59 MiB CGO alloc/total, 37.4 CGO/sec, 1.5/1.1 %(u/s)time, 0.0 %gc (0x), 567 KiB/290 KiB (r/w)net
+I200226 13:51:11.765723 705 server/status/runtime.go:498  [n1] runtime stats: 209 MiB RSS, 229 goroutines, 159 MiB/74 MiB/265 MiB GO alloc/idle/total, 46 MiB/59 MiB CGO alloc/total, 34.2 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 558 KiB/333 KiB (r/w)net
+I200226 13:51:21.311188 700 storage/store.go:2364  [n1,s1] sstables (read amplification = 1):
+0 [ 2M 1 ]: 2M
+I200226 13:51:21.311338 700 storage/store.go:2365  [n1,s1] 
+** Compaction Stats [default] **
+Level    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  L0      1/0    2.11 MB   0.5      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      3.9      0.53              0.00         1    0.534       0      0
+ Sum      1/0    2.11 MB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      3.9      0.53              0.00         1    0.534       0      0
+ Int      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   1.0      0.0      3.9      0.53              0.00         1    0.534       0      0
+
+** Compaction Stats [default] **
+Priority    Files   Size     Score Read(GB)  Rn(GB) Rnp1(GB) Write(GB) Wnew(GB) Moved(GB) W-Amp Rd(MB/s) Wr(MB/s) Comp(sec) CompMergeCPU(sec) Comp(cnt) Avg(sec) KeyIn KeyDrop
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+High      0/0    0.00 KB   0.0      0.0     0.0      0.0       0.0      0.0       0.0   0.0      0.0      3.9      0.53              0.00         1    0.534       0      0
+Uptime(secs): 1263.8 total, 600.0 interval
+Flush(GB): cumulative 0.002, interval 0.002
+AddFile(GB): cumulative 0.000, interval 0.000
+AddFile(Total Files): cumulative 0, interval 0
+AddFile(L0 Files): cumulative 0, interval 0
+AddFile(Keys): cumulative 0, interval 0
+Cumulative compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.5 seconds
+Interval compaction: 0.00 GB write, 0.00 MB/s write, 0.00 GB read, 0.00 MB/s read, 0.5 seconds
+Stalls(count): 0 level0_slowdown, 0 level0_slowdown_with_compaction, 0 level0_numfiles, 0 level0_numfiles_with_compaction, 0 stop for pending_compaction_bytes, 0 slowdown for pending_compaction_bytes, 0 memtable_compaction, 0 memtable_slowdown, interval 0 total count
+estimated_pending_compaction_bytes: 0 B
+I200226 13:51:21.773966 705 server/status/runtime.go:498  [n1] runtime stats: 206 MiB RSS, 229 goroutines, 168 MiB/66 MiB/265 MiB GO alloc/idle/total, 54 MiB/67 MiB CGO alloc/total, 38.5 CGO/sec, 1.5/1.2 %(u/s)time, 0.0 %gc (0x), 522 KiB/286 KiB (r/w)net
+I200226 13:51:31.772072 705 server/status/runtime.go:498  [n1] runtime stats: 208 MiB RSS, 229 goroutines, 92 MiB/127 MiB/265 MiB GO alloc/idle/total, 54 MiB/67 MiB CGO alloc/total, 40.5 CGO/sec, 2.2/1.5 %(u/s)time, 0.0 %gc (1x), 530 KiB/291 KiB (r/w)net
+I200226 13:51:41.777666 705 server/status/runtime.go:498  [n1] runtime stats: 209 MiB RSS, 230 goroutines, 102 MiB/119 MiB/265 MiB GO alloc/idle/total, 54 MiB/67 MiB CGO alloc/total, 33.1 CGO/sec, 1.6/1.2 %(u/s)time, 0.0 %gc (0x), 623 KiB/390 KiB (r/w)net
+I200226 13:51:51.800366 705 server/status/runtime.go:498  [n1] runtime stats: 205 MiB RSS, 230 goroutines, 112 MiB/112 MiB/265 MiB GO alloc/idle/total, 54 MiB/67 MiB CGO alloc/total, 36.8 CGO/sec, 1.6/1.3 %(u/s)time, 0.0 %gc (0x), 540 KiB/299 KiB (r/w)net
+I200226 13:52:01.310303 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 7941/3686 sent/received, bytes 2290095B/1625092B sent/received)
+  2: localhost:26258 (20m59s)
+  3: localhost:26259 (20m58s)
+I200226 13:52:01.789168 705 server/status/runtime.go:498  [n1] runtime stats: 187 MiB RSS, 230 goroutines, 121 MiB/104 MiB/265 MiB GO alloc/idle/total, 54 MiB/67 MiB CGO alloc/total, 36.8 CGO/sec, 1.5/1.3 %(u/s)time, 0.0 %gc (0x), 558 KiB/314 KiB (r/w)net
+I200226 13:52:11.790391 705 server/status/runtime.go:498  [n1] runtime stats: 190 MiB RSS, 229 goroutines, 130 MiB/96 MiB/265 MiB GO alloc/idle/total, 54 MiB/67 MiB CGO alloc/total, 41.4 CGO/sec, 1.5/1.2 %(u/s)time, 0.0 %gc (0x), 1.1 MiB/433 KiB (r/w)net
+I200226 13:52:21.799152 705 server/status/runtime.go:498  [n1] runtime stats: 195 MiB RSS, 229 goroutines, 140 MiB/89 MiB/265 MiB GO alloc/idle/total, 54 MiB/67 MiB CGO alloc/total, 37.2 CGO/sec, 1.5/1.2 %(u/s)time, 0.0 %gc (0x), 549 KiB/306 KiB (r/w)net
+I200226 13:52:31.792267 705 server/status/runtime.go:498  [n1] runtime stats: 201 MiB RSS, 229 goroutines, 149 MiB/81 MiB/265 MiB GO alloc/idle/total, 54 MiB/67 MiB CGO alloc/total, 33.8 CGO/sec, 1.5/1.2 %(u/s)time, 0.0 %gc (0x), 536 KiB/301 KiB (r/w)net
+I200226 13:52:41.799361 705 server/status/runtime.go:498  [n1] runtime stats: 204 MiB RSS, 230 goroutines, 158 MiB/73 MiB/265 MiB GO alloc/idle/total, 54 MiB/67 MiB CGO alloc/total, 36.3 CGO/sec, 1.8/1.4 %(u/s)time, 0.0 %gc (0x), 624 KiB/331 KiB (r/w)net
+I200226 13:52:51.814997 705 server/status/runtime.go:498  [n1] runtime stats: 207 MiB RSS, 230 goroutines, 167 MiB/65 MiB/265 MiB GO alloc/idle/total, 54 MiB/67 MiB CGO alloc/total, 35.7 CGO/sec, 1.5/1.3 %(u/s)time, 0.0 %gc (0x), 537 KiB/297 KiB (r/w)net
+I200226 13:53:01.312568 701 gossip/gossip.go:566  [n1] gossip status (ok, 3 nodes)
+gossip client (0/3 cur/max conns)
+gossip server (2/3 cur/max conns, infos 8305/3854 sent/received, bytes 2340504B/1648849B sent/received)
+  2: localhost:26258 (21m59s)
+  3: localhost:26259 (21m58s)
+I200226 13:53:01.808183 705 server/status/runtime.go:498  [n1] runtime stats: 211 MiB RSS, 230 goroutines, 91 MiB/129 MiB/265 MiB GO alloc/idle/total, 54 MiB/67 MiB CGO alloc/total, 37.8 CGO/sec, 2.2/1.7 %(u/s)time, 0.0 %gc (1x), 536 KiB/303 KiB (r/w)net
+I200226 13:53:11.803529 705 server/status/runtime.go:498  [n1] runtime stats: 212 MiB RSS, 229 goroutines, 101 MiB/121 MiB/265 MiB GO alloc/idle/total, 54 MiB/67 MiB CGO alloc/total, 41.3 CGO/sec, 1.7/1.3 %(u/s)time, 0.0 %gc (0x), 589 KiB/348 KiB (r/w)net
+I200226 13:53:21.803333 705 server/status/runtime.go:498  [n1] runtime stats: 213 MiB RSS, 229 goroutines, 112 MiB/113 MiB/265 MiB GO alloc/idle/total, 62 MiB/75 MiB CGO alloc/total, 37.9 CGO/sec, 2.1/1.4 %(u/s)time, 0.0 %gc (0x), 618 KiB/379 KiB (r/w)net
+I200226 13:53:22.887825 1 cli/start.go:865  received signal 'terminated'
+I200226 13:53:22.983716 1 cli/start.go:930  initiating graceful shutdown of server
+I200226 13:53:23.205675 31168 storage/store.go:1111  [drain] waiting for 14 replicas to transfer their lease away
+W200226 13:53:23.260699 1898 storage/raft_transport.go:634  [n1] while processing outgoing Raft queue to node 2: rpc error: code = Canceled desc = grpc: the client connection is closing:
+I200226 13:53:23.262199 31168 util/stop/stopper.go:542  [server drain process] quiescing; tasks left:
+2      [async] closedts-subscription
+1      [async] intent_resolver_ir_batcher
+1      [async] intent_resolver_gc_batcher
+1      [async] closedts-rangefeed-subscriber
+W200226 13:53:23.269823 2114 storage/raft_transport.go:634  [n1] while processing outgoing Raft queue to node 3: rpc error: code = Canceled desc = grpc: the client connection is closing:
+W200226 13:53:23.269977 1972 storage/raft_transport.go:634  [n1] while processing outgoing Raft queue to node 3: rpc error: code = Canceled desc = grpc: the client connection is closing:
+W200226 13:53:23.282628 2033 storage/raft_transport.go:634  [n1] while processing outgoing Raft queue to node 2: rpc error: code = Canceled desc = grpc: the client connection is closing:
+I200226 13:53:23.310127 31300 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:322  [n1] circuitbreaker: rpc 127.0.0.1:26257 [n2] tripped: failed to connect to n2 at localhost:26258: context canceled
+I200226 13:53:23.310144 31301 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:322  [n1] circuitbreaker: rpc 127.0.0.1:26257 [n3] tripped: failed to connect to n3 at localhost:26259: context canceled
+I200226 13:53:23.353664 31168 util/stop/stopper.go:542  [server drain process] quiescing; tasks left:
+2      [async] closedts-subscription
+1      [async] intent_resolver_ir_batcher
+1      [async] closedts-rangefeed-subscriber
+W200226 13:53:23.546079 91 gossip/gossip.go:1517  [n1] no incoming or outgoing connections
+I200226 13:53:23.575272 31300 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447  [n1] circuitbreaker: rpc 127.0.0.1:26257 [n2] event: BreakerTripped
+I200226 13:53:23.594829 31301 vendor/github.com/cockroachdb/circuitbreaker/circuitbreaker.go:447  [n1] circuitbreaker: rpc 127.0.0.1:26257 [n3] event: BreakerTripped
+I200226 13:53:23.710109 31300 rpc/nodedialer/nodedialer.go:160  [ct-client] unable to connect to n2: failed to connect to n2 at localhost:26258: context canceled
+I200226 13:53:23.752987 31301 rpc/nodedialer/nodedialer.go:160  [ct-client] unable to connect to n3: failed to connect to n3 at localhost:26259: context canceled
+I200226 13:53:23.891788 31168 storage/engine/rocksdb.go:762  closing rocksdb instance at "/Users/ekp/Projects/bmb-gw/node1/cockroach-temp518314998"
+I200226 13:53:24.263626 31168 storage/engine/rocksdb.go:762  closing rocksdb instance at "/Users/ekp/Projects/bmb-gw/node1"
+I200226 13:53:24.414760 1 cli/start.go:976  server drained and shutdown completed

@@ -1,7 +1,14 @@
 from japronto import Application
+from rethinkdb import RethinkDB
+
+r = RethinkDB()
+
+r.connect("localhost", 28015).repl()
 
 
 def generic(request):
+    print(request.json)
+    r.db("geo").table('location').insert(request.json).run()
     return request.Response(json={"result": "ok"})
 
 
