@@ -2,7 +2,7 @@ from japronto import Application
 
 
 def generic(request):
-    return request.Response(text="{\n\"result\": \"ok\"\n}")
+    return request.Response(json={"result": "ok"})
 
 
 app = Application()
