@@ -1,24 +1,32 @@
 FROM ubuntu:bionic
-#RUN apt-get update && echo "deb http://download.rethinkdb.com/apt `lsb_release -cs` main" > /etc/apt/sources.list.d/rethinkdb.list && apt-get install -y wget && wget -O- http://download.rethinkdb.com/apt/pubkey.gpg | apt-key add - && apt-get update && apt-get install -y rethinkdb python-pip && rm -rf /var/lib/apt/lists/*
+#RUN apt-get update && echo "deb http://download.rethinkdb.com/apt `lsb_release -cs` main" > /etc/apt/sources.list.d/rethinkdb.list && apt-get install -y wget && wget -O- http://download.rethinkdb.com/ap$
+RUN \
+  apt-get -qqy update && apt-get install -y --no-install-recommends ca-certificates gnupg2 wget  && \
+  echo "deb https://download.rethinkdb.com/apt bionic main" > /etc/apt/sources.list.d/rethinkdb.list && \
+  wget --no-check-certificate -O- https://download.rethinkdb.com/apt/pubkey.gpg | apt-key add - && \
+  apt-get update && \
+  apt-get install -y rethinkdb python-pip && \
+  rm -rf /var/lib/apt/lists/*
+
 #RUN \
-#  echo "deb http://download.rethinkdb.com/apt `lsb_release -cs` main" > /etc/apt/sources.list.d/rethinkdb.list && \
-#  wget -O- http://download.rethinkdb.com/apt/pubkey.gpg | apt-key add - && \
-#  apt-get update && \
-#  apt-get install -y rethinkdb python-pip && \
-#  rm -rf /var/lib/apt/lists/*
+#  apt-get -qqy update && apt-get install -y --no-install-recommends ca-certificates gnupg2 wget  && \
+#  echo "deb https://download.rethinkdb.com/apt bionic main" | tee /etc/apt/sources.list.d/rethinkdb.list && \
+#  wget -qO- https://download.rethinkdb.com/apt/pubkey.gpg | apt-key add -  && \
+#  apt-get update  && \
+#  apt-get install rethinkdb
 
-RUN apt-get -qqy update \
-    && apt-get install -y --no-install-recommends ca-certificates gnupg2 \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN apt-key adv --keyserver keys.gnupg.net --recv-keys "539A 3A8C 6692 E6E3 F69B 3FE8 1D85 E93F 801B B43F" \
-    && echo "deb https://download.rethinkdb.com/apt bionic main" > /etc/apt/sources.list.d/rethinkdb.list
-
-ENV RETHINKDB_PACKAGE_VERSION 2.4.0~0bionic
-
-RUN apt-get -qqy update \
-	&& apt-get install -y rethinkdb=$RETHINKDB_PACKAGE_VERSION \
-	&& rm -rf /var/lib/apt/lists/*
+#RUN apt-get -qqy update \
+#    && apt-get install -y --no-install-recommends ca-certificates gnupg2 \
+#    && rm -rf /var/lib/apt/lists/*
+#
+#RUN apt-key adv --keyserver keys.gnupg.net --recv-keys "539A 3A8C 6692 E6E3 F69B 3FE8 1D85 E93F 801B B43F" \
+#    && echo "deb https://download.rethinkdb.com/apt bionic main" > /etc/apt/sources.list.d/rethinkdb.list
+#
+#ENV RETHINKDB_PACKAGE_VERSION 2.4.0~0bionic
+#
+#RUN apt-get -qqy update \
+#	&& apt-get install -y rethinkdb=$RETHINKDB_PACKAGE_VERSION \
+#	&& rm -rf /var/lib/apt/lists/*
 
 # Install python driver for rethinkdb
 RUN pip install rethinkdb
